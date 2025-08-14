@@ -28,3 +28,24 @@ document.addEventListener('click', function(e) {
         e.target.closest('.address-container').remove();
     }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const salvarBtn = document.querySelector('.btn-salvar');
+    const modal = document.getElementById('success-modal');
+    const closeBtn = modal.querySelector('.close-btn');
+
+    salvarBtn.addEventListener('click', function (event) {
+        event.preventDefault(); // Impede envio real do formulário (remova se quiser enviar ao backend)
+        modal.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
