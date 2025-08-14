@@ -5,7 +5,6 @@ function addAddress() {
     clone.style.display = '';
     clone.style.border = '#c9c9c9 0.1px solid';
     clone.style.padding = '10px';
-    clone.style.margin = '10px';
     clone.removeAttribute('id');
     clone.querySelector('.remove-btn').onclick = function () {
         clone.remove();
