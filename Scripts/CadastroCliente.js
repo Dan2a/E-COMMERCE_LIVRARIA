@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     closeBtn.addEventListener('click', function () {
         modal.style.display = 'none';
+        window.location.replace('index.html');
     });
 
     window.addEventListener('click', function (event) {
