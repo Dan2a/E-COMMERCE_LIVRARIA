@@ -200,4 +200,21 @@
   .close-btn:hover {
     color: darkred;
   }
+
+  .botoes-cancelar {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+}
+  .btn-nao, .btn-sim{
+    margin: 10px 0px 0px 0px;
+  }
+
+  .btn-nao{
+    background-color: red;
+  }
+
+  .btn-nao:hover{
+    background-color: darkred;
+  }
   

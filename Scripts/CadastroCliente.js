@@ -29,24 +29,70 @@ document.addEventListener('click', function(e) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const salvarBtn = document.querySelector('.btn-salvar');
-    const modal = document.getElementById('success-modal');
-    const closeBtn = modal.querySelector('.close-btn');
+document.addEventListener('DOMContentLoaded', () => {
 
-    salvarBtn.addEventListener('click', function (event) {
-        event.preventDefault(); // Impede envio real do formulário (remova se quiser enviar ao backend)
-        modal.style.display = 'block';
+    // Função genérica para abrir modal
+    function abrirModal(modal) {
+        if (modal) modal.style.display = 'block';
+    }
+
+    // Função genérica para fechar modal
+    function fecharModal(modal) {
+        if (modal) modal.style.display = 'none';
+    }
+
+    // ---------------- Modal de Sucesso ----------------
+    const btnSalvar = document.querySelector('.btn-salvar');
+    const modalSucesso = document.getElementById('success-modal');
+    const closeSucesso = modalSucesso?.querySelector('.close-btn');
+
+    btnSalvar?.addEventListener('click', (e) => {
+        e.preventDefault();
+        abrirModal(modalSucesso);
     });
 
-    closeBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
+    closeSucesso?.addEventListener('click', () => {
+        fecharModal(modalSucesso);
         window.location.replace('index.html');
     });
 
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+    // Fechar clicando fora → também redireciona
+    window.addEventListener('click', (event) => {
+        if (event.target === modalSucesso) {
+            fecharModal(modalSucesso);
+            window.location.replace('index.html');
+        }
+    });
+
+    // ---------------- Modal de Cancelamento ----------------
+    const btnCancelar = document.querySelector('.btn-cancelar'); 
+    const btnNao = document.querySelector('.btn-nao');
+    const btnSim = document.querySelector('.btn-sim');
+    const modalCancelamento = document.getElementById('cancel-modal');
+    const closeCancelamento = modalCancelamento?.querySelector('.close-btn');
+
+    // Abre modal de cancelamento
+    btnCancelar?.addEventListener('click', (e) => {
+        e.preventDefault();
+        abrirModal(modalCancelamento);
+    });
+
+    // Botão NÃO → fecha modal
+    btnNao?.addEventListener('click', () => fecharModal(modalCancelamento));
+
+    // Botão SIM → fecha e redireciona
+    btnSim?.addEventListener('click', () => {
+        fecharModal(modalCancelamento);
+        window.location.replace('index.html');
+    });
+
+    // Botão X → fecha modal
+    closeCancelamento?.addEventListener('click', () => fecharModal(modalCancelamento));
+
+    // Fechar clicando fora → apenas fecha
+    window.addEventListener('click', (event) => {
+        if (event.target === modalCancelamento) {
+            fecharModal(modalCancelamento);
         }
     });
 });
