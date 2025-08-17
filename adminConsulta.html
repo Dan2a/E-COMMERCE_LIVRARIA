@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LivraTec - Consulta de Clientes</title>
+  <link rel="stylesheet" href="Styles/Style.css">
+  <link rel="stylesheet" href="Styles/AdminConsulta.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="navbar-logo">LivraTec</a>
+    </nav>
+  </header>
+
+  <main class="content-area">
+    <form class="formulario-consulta">
+        <h2 class="titulo-secao">Consulta de Clientes</h2>
+        <div class="grid-filtros">
+            <div>
+                <label for="nome" class="label-campo">Nome</label>
+                <input type="text" id="nome" class="input-campo" placeholder="Digite o nome">
+            </div>
+            <div>
+                <label for="dataNascimento" class="label-campo">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" class="input-campo">
+            </div>
+            <div>
+                <label for="cpf" class="label-campo">CPF</label>
+                <input type="text" id="cpf" class="input-campo" placeholder="Digite o CPF">
+            </div>
+            <div>
+                <label for="genero" class="label-campo">Gênero</label>
+                <select id="genero" class="input-campo">
+                    <option value="">Escolha...</option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+            <div>
+                <label for="telefone" class="label-campo">Telefone</label>
+                <input type="text" id="telefone" class="input-campo" placeholder="Digite o telefone">
+            </div>
+            <div>
+                <label for="email" class="label-campo">E-mail</label>
+                <input type="email" id="email" class="input-campo" placeholder="Digite o e-mail">
+            </div>
+        </div>
+
+        <div class="linha btn-acao">
+            <button type="submit" class="btn-principal">Filtrar</button>
+        </div>
+    </form>
+   
+    <div class="tabela-container">
+        <h2 class="titulo-secao">Resultados</h2>
+        <table class="tabela-clientes">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ana Maria</td>
+                    <td>15/03/1990</td>
+                    <td>123.456.789-00</td>
+                    <td>(11) 98765-4321</td>
+                    <td>ana.maria@email.com</td>
+                    <td>
+                    <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
+                    <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bruno Silva</td>
+                    <td>22/07/1985</td>
+                    <td>987.654.321-00</td>
+                    <td>(21) 91234-5678</td>
+                    <td>bruno.silva@email.com</td>
+                    <td>
+                    <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
+                    <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Carla Souza</td>
+                    <td>08/11/1992</td>
+                    <td>456.123.789-00</td>
+                    <td>(31) 99876-5432</td>
+                    <td>carla.souza@email.com</td>
+                    <td>
+                    <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
+                    <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Trabalho Laboratório de Engenharia de Software. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="/scripts/ConsultaClientes.js" defer></script>
+</body>
+
+</html>

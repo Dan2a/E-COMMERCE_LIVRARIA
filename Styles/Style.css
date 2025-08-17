@@ -1,7 +1,7 @@
 :root {
   --cor-botao: #007bff;
   --cor-borda: #ccc
-}
+} 
 
 * {
     margin: 0;
@@ -51,10 +51,11 @@
     cursor: pointer;
 }
 
-.navbar-cadastro {
+#cadastro-btn, #login-btn {
     padding: 8px 20px;
     background-color:  var(--cor-botao);
     color: #fff;
+    margin: 0px 10px 0px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
