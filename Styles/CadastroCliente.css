@@ -6,8 +6,6 @@
     font-family: Arial, sans-serif;
 }
 
-
-
 .linha {
     display: flex;
     flex-wrap: wrap;
@@ -88,6 +86,25 @@
     flex: 1; /* cada botão ocupa metade do espaço disponível */
 }
 
+.numero-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.numero-wrapper .input-campo {
+    flex: 1;
+}
+
+.numero-wrapper .remove-btn {
+    position: static;   /* deixa de ser absoluto */
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
 .address-container, .card-container {
     position: relative; /* necessário para o botão absoluto */
     border: 1px solid #ccc;
@@ -96,30 +113,6 @@
     border-radius: 5px;
     background-color: #f9f9f9; /* mesma cor do endereço */
 }
-
-.remove-btn {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: red;
-    width: 25px;
-    height: 25px;
-    border: none;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-
-.remove-btn:hover {
-    background-color: darkred;
-}
-
 
 #btnBuscarCep {
   background-color:  var(--cor-botao);

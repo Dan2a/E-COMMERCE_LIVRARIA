@@ -6,31 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LivraTec</title>
     <link rel="stylesheet" href="Styles/Style.css">
+    <link rel="stylesheet" href="Styles/Carrinho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="navbar-logo">LivraTec</a>
-            <form class="navbar-search" action="#" method="get">
-                <input type="text" placeholder="Pesquisar livros..." name="search">
-                <button type="submit">Pesquisar</button>
-            </form>
-           <div class ="navbar-buttons">
-                <a href="adminConsulta.html" id="login-btn" class="navbar-login button">Login</a>
-                <a href="cadastroCliente.html" id="cadastro-btn" class="navbar-cadastro">Cadastro</a>
-            </div>
-        </nav>
-    </header>
-    
+    <header id="navbar-container"></header>
+
     <main class="main">
         <h1>Bem-vindo ao LivraTec</h1>
         <p>Explore nossos livros e faça seu cadastro para aproveitar todas as funcionalidades!</p>
     </main>
 
+    <!-- Slidebar do carrinho -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Carrinho</h2>
+            <button type="button" class="s close-btn" title="Fechar Carrinho" onclick="closeCart()">&times;</button>
+        </div>
+
+        <div class="cart-items">
+            <!-- Exemplo de item -->
+            <div class="cart-item">
+                <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg" alt="Livro Exemplo">
+                <div class="item-info">
+                    <p class="item-name">Entendendo Algoritimos</p>
+                    <p class="item-descricao">Livro Exemplo</p>
+                    <p class="item-price">R$ 59,90</p>
+                    <div class="item-actions">
+                        <input type="number" value="1" min="1">
+                        <button class="trash-btn" onclick="removeItem(this)">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="https://m.media-amazon.com/images/I/41RfuBLUbWL._SY445_SX342_ControlCacheEqualizer_.jpg"
+                    alt="Livro Exemplo">
+                <div class="item-info">
+                    <p class="item-name">Algoritimos e Lógica da Programação</p>
+                    <p class="item-descricao">Livro Exemplo</p>
+                    <p class="item-price">R$ 71,90</p>
+                    <div class="item-actions">
+                        <input type="number" value="1" min="1">
+                        <button class="trash-btn" onclick="removeItem(this)">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
     <footer class="footer">
         <p>&copy; 2025 Trabalho Laborátotio de Engenharia de Software. Todos os direitos reservados.</p>
     </footer>
+    <script src="Scripts/Script.js"></script>
 </body>
 
 </html>

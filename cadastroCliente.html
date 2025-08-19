@@ -7,8 +7,9 @@
     <title>LivraTec - Cadastro de Clientes</title>
     <link rel="stylesheet" href="Styles/Style.css">
     <link rel="stylesheet" href="Styles/cadastroCliente.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <div id="success-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
@@ -29,19 +30,7 @@
 
 
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="navbar-logo">LivraTec</a>
-            <form class="navbar-search" action="#" method="get">
-                <input type="text" placeholder="Pesquisar livros..." name="search">
-                <button type="submit">Pesquisar</button>
-            </form>
-            <div class ="navbar-buttons">
-                <a href="adminConsulta.html" id="login-btn" class="navbar-login button">Login</a>
-                <a href="cadastroCliente.html" id="cadastro-btn" class="navbar-cadastro">Cadastro</a>
-            </div>
-        </nav>
-    </header>
+    <header id="navbar-container"></header>
 
     <main class="content-area">
         <form class="formulario-cadastro">
@@ -98,32 +87,35 @@
             </p>
 
             <h2 class="titulo-secao">Contato</h2>
-            <div class="linha">
-                <div class="coluna-25">
-                    <label class="label-campo">Tipo</label>
-                    <select class="input-campo" name="telefones[${telefoneIndex}].tipo" required>
-                        <option value="">Tipo</option>
-                        <option value="CELULAR">Celular</option>
-                        <option value="FIXO">Fixo</option>
-                        <option value="COMERCIAL">Comercial</option>
-                    </select>
-                </div>
+            <div id="telefones-container">
+                <div id="telefone-template" class="linha telefone-container" style="display: none;">
+                    <div class="coluna-25">
+                        <label class="label-campo">Tipo</label>
+                        <select class="input-campo" name="tipo" required>
+                            <option value="">Tipo</option>
+                            <option value="CELULAR">Celular</option>
+                            <option value="FIXO">Fixo</option>
+                            <option value="COMERCIAL">Comercial</option>
+                        </select>
+                    </div>
 
-                <div class="coluna-25">
-                    <label class="label-campo">DDD</label>
-                    <input class="input-campo" type="text" name="telefones[${telefoneIndex}].ddd" placeholder="DDD"
-                        required>
-                </div>
+                    <div class="coluna-25">
+                        <label class="label-campo">DDD</label>
+                        <input class="input-campo" type="text" name="ddd" placeholder="DDD" required>
+                    </div>
 
-                <div class="coluna-50">
-                    <label class="label-campo">Número</label>
-                    <input class="input-campo" type="text" name="telefones[${telefoneIndex}].numero"
-                        placeholder="Número" required>
+                    <div class="coluna-50 numero-coluna">
+                        <label class="label-campo">Número</label>
+                        <div class="numero-wrapper">
+                            <input class="input-campo" type="text" name="numero" placeholder="Número" required>
+                            <button type="button" class="remove-btn" title="Remover Telefone">&times;</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- <div id="telefonesContainer"></div>
-            <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar Telefone</button> -->
+            <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar Telefone</button>
+
 
             <h2 class="titulo-secao">Endereços</h2>
             <div id="address-container">
@@ -147,7 +139,7 @@
                                 <input class="input-campo" type="text" id="cep" name="cep" required maxlength="9"
                                     placeholder="00000-000">
                                 <button type="button" id="btnBuscarCep" title="Buscar CEP">
-                                    <i class='bx bx-search'></i>
+                                    <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
                             </div>
                         </div>
@@ -272,6 +264,7 @@
     </footer>
 
     <script src="Scripts/CadastroCliente.js"></script>
+    <script src="Scripts/Script.js"></script>
 </body>
 
 </html>
