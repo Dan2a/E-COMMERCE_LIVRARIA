@@ -28,7 +28,10 @@
   transition: 0.3s;
 }
 
-.sidebar button:hover,
+.sidebar button:hover{
+    background: #0d55a1;
+    color: white;
+}
 .sidebar button.active {
   background: #007bff;
   color: white;
@@ -79,7 +82,7 @@
 .btn-save {
   margin-top: 10px;
   padding: 10px 16px;
-  background: #28a745;
+  background: #007bff;
   color: white;
   border: none;
   border-radius: 6px;
@@ -87,5 +90,218 @@
 }
 
 .btn-save:hover {
-  background: #218838;
+  background: #0d55a1;
 }
+
+
+/*ESTILO DOS FORMULARIOOS*/
+
+.formulario-cadastro {
+    max-width: 90%;
+    margin: auto;
+    padding: 0px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.coluna, .coluna-50 {
+    flex: 1;
+    min-width: 200px;
+}
+
+.coluna-25 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    min-width: 100px;
+}
+
+.label-campo {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-campo {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-campo:focus {
+    border-color:  var(--cor-botao);;
+    outline: none;
+}
+
+.texto-ajuda {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: -5px;
+    padding-bottom: 10px;
+}
+
+.btn-principal {
+    background:  var(--cor-botao);;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.btn-principal:hover {
+    background: #0056b3;
+}
+
+.btn-acao, .btn-cancelar, .btn-salvar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0px 15px 0px;
+}
+
+.btn-cancelar{
+    background-color: #f44336; /* vermelho */
+}
+
+.btn-cancelar:hover {
+    background-color: #d32f2f; /* vermelho mais escuro */
+}
+
+.btn-acao .btn-principal {
+    flex: 1; /* cada botão ocupa metade do espaço disponível */
+}
+
+.numero-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.numero-wrapper .input-campo {
+    flex: 1;
+}
+
+.numero-wrapper .remove-btn {
+    position: static;   /* deixa de ser absoluto */
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.address-container, .card-container {
+    position: relative; /* necessário para o botão absoluto */
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* mesma cor do endereço */
+}
+
+#btnBuscarCep {
+  background-color:  var(--cor-botao);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 3px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#btnBuscarCep:hover {
+  background-color: #0056b3;
+}
+
+#btnBuscarCep i {
+  color: white;
+  padding-top: 2px;
+  font-size: 20px;
+}
+
+.cepInputGroup {
+  display: flex;
+}
+
+.cepInputGroup input {
+  flex: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Fundo escuro do modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Caixa do modal */
+  .modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    position: relative;
+    animation: slideDown 0.4s ease-out;
+  }
+  
+  /* Botão fechar */
+  .close-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .close-btn:hover {
+    color: darkred;
+  }
+
+  .botoes-cancelar {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+}
+  .btn-nao, .btn-sim{
+    margin: 10px 0px 0px 0px;
+  }
+
+  .btn-nao{
+    background-color: red;
+  }
+
+  .btn-nao:hover{
+    background-color: darkred;
+  }
+  
