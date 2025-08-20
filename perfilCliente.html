@@ -40,13 +40,13 @@
                     <label for="nome" class="label-campo">Nome</label>
                     <input type="text" id="nome" class="input-campo" required>
                 </div>
-            </div>
-            <div class="linha">
-                <div class="coluna-50">
+          </div>
+          <div class="linha">
+              <div class="coluna-50">
                     <label for="data-nascimento" class="label-campo">Data de Nascimento</label>
                     <input type="date" id="data-nascimento" class="input-campo" required>
-                </div>
-                <div class="coluna-50">
+              </div>
+              <div class="coluna-50">
                     <label for="genero" class="label-campo">Gênero</label>
                     <select id="genero" class="input-campo" required>
                         <option value="">Escolha...</option>
@@ -54,10 +54,9 @@
                         <option>Feminino</option>
                         <option>Outro</option>
                     </select>
-                </div>
-            </div>
-
-            <div class="linha">
+              </div>
+          </div>
+          <div class="linha">
                 <div class="coluna-50">
                     <label for="cpf" class="label-campo">CPF</label>
                     <input type="text" id="cpf" class="input-campo" required>
@@ -66,9 +65,8 @@
                     <label for="email" class="label-campo">E-mail</label>
                     <input type="email" id="email" class="input-campo" required>
                 </div>
-            </div>
-
-            <div class="linha">
+          </div>
+          <div class="linha">
                 <div class="coluna-50">
                     <label for="senha" class="label-campo">Senha</label>
                     <input type="password" id="senha" class="input-campo" required>
@@ -77,15 +75,15 @@
                     <label for="confirmacao-senha" class="label-campo">Confirmação de Senha</label>
                     <input type="password" id="confirmacao-senha" class="input-campo" required>
                 </div>
-            </div>
+          </div>
 
-            <p class="texto-ajuda">
+          <p class="texto-ajuda">
                 * A senha deve conter no mínimo 8 caracteres, incluindo letras maiúsculas, minúsculas, números e
                 caracteres especiais.
-            </p>
+          </p>
 
-            <h2 class="titulo-secao">Contato</h2>
-            <div id="telefones-container">
+          <h2 class="titulo-secao">Contato</h2>
+          <div id="telefones-container">
                 <div id="telefone-template" class="linha telefone-container" style="display: none;">
                     <div class="coluna-25">
                         <label class="label-campo">Tipo</label>
@@ -110,12 +108,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar Telefone</button>
+          </div>
+          <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar Telefone</button>
+          <div class="linha btn-acao">
+                <button type="button" class="btn-principal btn-alterar">Alterar Informações</button>
+                <button type="button" class="btn-principal btn-cancelar" style="visibility: hidden">Cancelar</button>
+                <button type="submit" class="btn-principal btn-salvar" style="visibility: hidden">Salvar</button>
+          </div>
         </form>
         </div>
-        
+
         <div id="enderecos" class="section">
         <form class="formulario-enderecos">
           <h2>Endereços</h2>
@@ -205,25 +207,87 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <button type="button" class="btn-principal" onclick="addAddress()">Adicionar Endereço</button>
+          </div>
+          <button type="button" class="btn-principal" onclick="addAddress()">Adicionar Endereço</button>
 
+          <div class="linha btn-acao">
+                <button type="button" class="btn-principal btn-alterar">Alterar Informações</button>
+                <button type="button" class="btn-principal btn-cancelar" style="visibility: hidden">Cancelar</button>
+                <button type="submit" class="btn-principal btn-salvar" style="visibility: hidden">Salvar</button>
+          </div>
         </form>
         </div>
 
         <div id="cartoes" class="section">
+          <form class="formulario-cartoes">
           <h2>Cartões de Crédito</h2>
-          <div class="form-group">
-            <label>Número do cartão:</label>
-            <input type="text" placeholder="**** **** **** 1234">
+          <div id="card-container">
+                <div id="card-template" class="card-container" style="display: none;">
+                    <button type="button" class="remove-btn" title="Remover cartão">&times;</button>
+                    <div class="linha">
+                        <div class="coluna-50">
+                            <label class="label-campo">Número do Cartão</label>
+                            <input type="text" class="input-campo" name="numero-cartao">
+                        </div>
+                        <div class="coluna-25">
+                            <label class="label-campo">Bandeira</label>
+                            <select class="input-campo" name="bandeira">
+                                <option selected>Escolha...</option>
+                                <option>Visa</option>
+                                <option>MasterCard</option>
+                                <option>Amex</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna-50">
+                            <label class="label-campo">Nome no Cartão</label>
+                            <input type="text" class="input-campo" name="nome-titular">
+                        </div>
+                        <div class="coluna-25">
+                            <label class="label-campo">Código de Segurança</label>
+                            <input type="text" class="input-campo" name="cvv">
+                        </div>
+                        <div class="coluna-25">
+                            <label class="label-campo">Validade</label>
+                            <input type="text" class="input-campo" name="validade" placeholder="MM/AA">
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna">
+                            <label class="label-campo">
+                                <input type="radio" name="cartao-preferencial"> Cartão Preferencial
+                            </label>
+                        </div>
+                    </div>
+                </div>
           </div>
-          <button class="btn-save">Salvar</button>
+          <button type="button" class="btn-principal" onclick="addCard()">Adicionar Cartão</button>
+          
+          <div class="linha btn-acao">
+                <button type="button" class="btn-principal btn-alterar">Alterar Informações</button>
+                <button type="button" class="btn-principal btn-cancelar" style="visibility: hidden">Cancelar</button>
+                <button type="submit" class="btn-principal btn-salvar" style="visibility: hidden">Salvar</button>
+          </div>
+          </form>
         </div>
 
         <div id="cupons" class="section">
-          <h2>Cupons</h2>
-          <p>Você ainda não possui cupons.</p>
+          <div class="secao-cupons">
+            <h2>Cupons</h2>
+             <div id="card-container">
+                <div id="card-template" class="card-container" style="display: none;">
+                  <div class="linha">
+                          <div class="coluna-50">
+                              <p>Você ainda não possui cupons.</p>
+                          </div>
+                  </div>
+                </div>
+             </div>
+          </div>
         </div>
+
+
       </div>
     </div>
   </main>
