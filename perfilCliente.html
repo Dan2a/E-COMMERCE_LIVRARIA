@@ -33,7 +33,7 @@
 
         <!-- Seções -->
         <div id="dados" class="section">
-         <form class="formulario-cadastro">
+         <form class="formulario-dados-pessoais">
           <h2>Dados Pessoais</h2>
           <div class="linha">
                 <div class="coluna">
@@ -41,7 +41,6 @@
                     <input type="text" id="nome" class="input-campo" required>
                 </div>
             </div>
-
             <div class="linha">
                 <div class="coluna-50">
                     <label for="data-nascimento" class="label-campo">Data de Nascimento</label>
@@ -114,15 +113,102 @@
             </div>
 
             <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar Telefone</button>
-          </form>
-
+        </form>
+        </div>
+        
         <div id="enderecos" class="section">
+        <form class="formulario-enderecos">
           <h2>Endereços</h2>
-          <div class="form-group">
-            <label>Endereço:</label>
-            <input type="text" placeholder="Rua, número, bairro">
-          </div>
-          <button class="btn-save">Salvar</button>
+          <div id="address-container">
+                <div id="address-template" class="address-container" style="display: none;">
+                    <button type="button" class="remove-btn" title="Remover Endereço">&times;</button>
+                    <div class="linha">
+                        <div class="coluna-50">
+                            <label class="label-campo" for="tipoResidencia">Tipo de Residência</label>
+                            <select class="input-campo" id="tipoResidencia" name="tipoResidencia" required>
+                                <option value="">Selecione</option>
+                                <option value="CASA">Casa</option>
+                                <option value="APARTAMENTO">Apartamento</option>
+                                <option value="KITNET">Kitnet</option>
+                                <option value="SOBRADO">Sobrados</option>
+                                <option value="OUTROS">Outros</option>
+                            </select>
+                        </div>
+                        <div class="coluna-50">
+                            <label class="label-campo" for="cep">CEP</label>
+                            <div class="cepInputGroup ">
+                                <input class="input-campo" type="text" id="cep" name="cep" required maxlength="9"
+                                    placeholder="00000-000">
+                                <button type="button" id="btnBuscarCep" title="Buscar CEP">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna-25">
+                            <label class="label-campo" for="tipoLogradouro">Tipo de Logradouro</label>
+                            <select class="input-campo" id="tipoLogradouro" name="tipoLogradouro" required>
+                                <option value="">Selecione</option>
+                                <option value="RUA">Rua</option>
+                                <option value="AVENIDA">Avenida</option>
+                                <option value="TRAVESSA">Travessa</option>
+                                <option value="ALAMEDA">Alameda</option>
+                                <option value="ESTRADA">Estrada</option>
+                                <option value="RODOVIA">Rodovia</option>
+                                <option value="PRACA">Praça</option>
+                                <option value="VIELA">Viela</option>
+                                <option value="LARGO">Largo</option>
+                            </select>
+                        </div>
+                        <div class="coluna-50">
+                            <label class="label-campo" for="logradouro">Logradouro</label>
+                            <input class="input-campo" type="text" id="logradouro" name="logradouro" required>
+                        </div>
+                        <div class="coluna-25">
+                            <label class="label-campo" for="numero">Número</label>
+                            <input class="input-campo" type="text" id="numero" name="numero" required>
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna-50">
+                            <label class="label-campo" for="bairro">Bairro</label>
+                            <input class="input-campo" type="text" id="bairro" name="bairro" required>
+                        </div>
+                        <div class="coluna-50">
+                            <label class="label-campo" for="cidade">Cidade</label>
+                            <input class="input-campo" type="text" id="cidade" name="cidade" required>
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna-50">
+                            <label class="label-campo" for="estado">Estado</label>
+                            <input class="input-campo" type="text" id="estado" name="estado" required>
+                        </div>
+                        <div class="coluna-50">
+                            <label class="label-campo" for="pais">País</label>
+                            <input class="input-campo" type="text" id="pais" name="pais" required>
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna">
+                            <label class="label-campo">Observações</label>
+                            <textarea class="input-campo" name="observacoes"></textarea>
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna">
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="endereco-entrega"> Endereço de Entrega</label>
+                                <label><input type="checkbox" name="endereco-cobranca"> Endereço de Cobrança</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn-principal" onclick="addAddress()">Adicionar Endereço</button>
+
+        </form>
         </div>
 
         <div id="cartoes" class="section">

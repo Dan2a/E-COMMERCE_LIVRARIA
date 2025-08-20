@@ -40,7 +40,7 @@
 /* Área de conteúdo ocupa o resto */
 .content {
   flex: 1;
-  padding: 40px;
+  padding: 20px 10px;
   position: relative;
 }
 
@@ -96,7 +96,7 @@
 
 /*ESTILO DOS FORMULARIOOS*/
 
-.formulario-cadastro {
+.formulario-dados-pessoais,.formulario-enderecos {
     max-width: 90%;
     margin: auto;
     padding: 0px;
