@@ -103,7 +103,7 @@
 }
 /*ESTILO DOS FORMULARIOOS*/
 
-.formulario-dados-pessoais,.formulario-enderecos, .formulario-cartoes {
+.formulario-dados-pessoais,.formulario-enderecos, .formulario-cartoes, .formulario-senha{
     max-width: 90%;
     margin: auto;
     padding: 0px;
@@ -171,7 +171,7 @@
     background: #0056b3;
 }
 
-.btn-acao, .btn-cancelar, .btn-salvar {
+.btn-acao, .btn-cancelar, .btn-cancelar-senha,.btn-salvar,.btn-salvar-senha {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,11 +179,11 @@
     padding: 15px 0px 15px 0px;
 }
 
-.btn-cancelar{
+.btn-cancelar, .btn-cancelar-senha{
     background-color: #f44336; /* vermelho */
 }
 
-.btn-cancelar:hover {
+.btn-cancelar, .btn-cancelar-senha:hover {
     background-color: #d32f2f; /* vermelho mais escuro */
 }
 

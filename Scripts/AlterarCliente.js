@@ -36,6 +36,14 @@ function adicionarTelefone() {
     container.appendChild(clone);
 }
 
+function toggleSenha() {
+  const formSenha = document.getElementById('formulario-senha');
+  if (formSenha.style.visibility === 'hidden') {
+    formSenha.style.visibility = 'visible';
+  } else {
+    formSenha.style.visibility = 'hidden';
+  }
+}
 
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('remove-btn')) {
@@ -44,6 +52,19 @@ document.addEventListener('click', function(e) {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    const btnSalvarSenha = document.querySelector('.btn-salvar-senha');
+    const formSenha = document.getElementById('formulario-senha');
+    const btnCancelarSenha = document.querySelector('.btn-cancelar-senha');
+
+    btnCancelarSenha?.addEventListener('click', (e) => {
+        e.preventDefault();
+        abrirModal(modalCancelamento);
+       
+    });
+    btnSalvarSenha?.addEventListener('click', (e) => {
+        e.preventDefault();
+        abrirModal(modalSucesso);
+    });
 
     // Função genérica para abrir modal
     function abrirModal(modal) {
@@ -57,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---------------- Modal de Sucesso ----------------
     const btnSalvar = document.querySelector('.btn-salvar');
+   
+
     const modalSucesso = document.getElementById('success-modal');
     const closeSucesso = modalSucesso?.querySelector('.close-btn');
 
@@ -67,15 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeSucesso?.addEventListener('click', () => {
         fecharModal(modalSucesso);
-        window.location.replace('index.html');
+        //window.location.replace('index.html');
+          formSenha.style.visibility = 'hidden';
     });
 
     // Fechar clicando fora → também redireciona
     window.addEventListener('click', (event) => {
         if (event.target === modalSucesso) {
             fecharModal(modalSucesso);
-            window.location.replace('index.html');
-        }
+            formSenha.style.visibility = 'hidden';        }
     });
 
     // ---------------- Modal de Cancelamento ----------------
@@ -90,14 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         abrirModal(modalCancelamento);
     });
-
+   
     // Botão NÃO → fecha modal
     btnNao?.addEventListener('click', () => fecharModal(modalCancelamento));
 
     // Botão SIM → fecha e redireciona
     btnSim?.addEventListener('click', () => {
         fecharModal(modalCancelamento);
-        window.location.replace('index.html');
+        formSenha.style.visibility = 'hidden';
     });
 
     // Botão X → fecha modal
