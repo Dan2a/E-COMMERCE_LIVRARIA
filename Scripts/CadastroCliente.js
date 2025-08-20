@@ -23,6 +23,20 @@ function addCard() {
     container.appendChild(clone);
 }
 
+function adicionarTelefone() {
+    const container = document.getElementById('telefones-container');
+    const template = document.getElementById('telefone-template');
+    const clone = template.cloneNode(true);
+    clone.style.display = '';
+    clone.removeAttribute('id');
+    clone.querySelector('.remove-btn').onclick = function () {
+        clone.remove();
+    };
+
+    container.appendChild(clone);
+}
+
+
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('remove-btn')) {
         e.target.closest('.address-container').remove();
@@ -95,4 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
             fecharModal(modalCancelamento);
         }
     });
+
+    // Cria telefone ao carregar a página
+    adicionarTelefone();
+    // Cria endereço ao carregar a página
+    addAddress();
+    // Cria cartão ao carregar a página
+    addCard();
 });
