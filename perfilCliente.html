@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LivraTec</title>
+    <link rel="stylesheet" href="Styles/Style.css">
+    <link rel="stylesheet" href="Styles/PerfilCliente.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header id="navbar-container"></header>
+
+  <main class="main">
+    <div class="container">
+      <!-- Menu lateral -->
+      <aside class="sidebar">
+        <button class="menu-btn" data-section="dados">📄 Dados Pessoais</button>
+        <button class="menu-btn" data-section="enderecos">📍 Endereços</button>
+        <button class="menu-btn" data-section="cartoes">💳 Cartões de Crédito</button>
+        <button class="menu-btn" data-section="cupons">🎟️ Cupons</button>
+      </aside>
+
+      <!-- Área de conteúdo -->
+      <div class="content">
+        <!-- Mensagem inicial -->
+        <div id="initial" class="initial-message">
+          <h1>Minha conta</h1>
+          <p>Mantenha seus dados cadastrais atualizados.</p>
+        </div>
+
+        <!-- Seções -->
+        <div id="dados" class="section">
+          <h2>Dados Pessoais</h2>
+          <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" placeholder="Digite seu nome">
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="email" placeholder="Digite seu email">
+          </div>
+          <button class="btn-save">Salvar</button>
+        </div>
+
+        <div id="enderecos" class="section">
+          <h2>Endereços</h2>
+          <div class="form-group">
+            <label>Endereço:</label>
+            <input type="text" placeholder="Rua, número, bairro">
+          </div>
+          <button class="btn-save">Salvar</button>
+        </div>
+
+        <div id="cartoes" class="section">
+          <h2>Cartões de Crédito</h2>
+          <div class="form-group">
+            <label>Número do cartão:</label>
+            <input type="text" placeholder="**** **** **** 1234">
+          </div>
+          <button class="btn-save">Salvar</button>
+        </div>
+
+        <div id="cupons" class="section">
+          <h2>Cupons</h2>
+          <p>Você ainda não possui cupons.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Trabalho Laboratório de Engenharia de Software. Todos os direitos reservados.</p>
+    </footer>
+    <script src="Scripts/PerfilCliente.js"></script>
+     <script src="Scripts/Script.js"></script>
+</body>
