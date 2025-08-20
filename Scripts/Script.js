@@ -12,7 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
         path.includes("adminConsulta.html")
       ) {
         document.querySelector(".navbar-search").style.display = "none";
-        document.querySelector(".navbar-buttons").style.display = "none";
+        const navbarSearch = document.querySelector(".navbar-search");
+        if (navbarSearch) {
+          navbarSearch.style.display = "none";
+        }
+        const navbarButtons = document.querySelector(".navbar-buttons");
+        if (navbarButtons) {
+          navbarButtons.style.display = "none";
+        }
       }
     });
 });
