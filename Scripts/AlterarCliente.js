@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const campos = formulario.querySelectorAll('input, select, textarea');
         const botoesExtras = formulario.querySelectorAll('button.remove-btn, #btnBuscarCep');
         const btnAlterar = formulario.querySelector('.btn-alterar');
-        const btnCancelar = formulario.querySelector('.btn-cancelar');
-        const btnSalvar = formulario.querySelector('.btn-salvar');
+        const btnCancelar = formulario.querySelector('.btn-cancelar, .btn-cancelar-senha');
+        const btnSalvar = formulario.querySelector('.btn-salvar, .btn-salvar-senha');
         
         if (!btnAlterar || !btnCancelar || !btnSalvar) return;
 
@@ -143,6 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modalSucesso?.querySelector('.close-btn').addEventListener('click', () => {
         fecharModal(modalSucesso);
+        if (formToToggle) {
+            toggleCampos(formToToggle, false);
+            // Verifica se é o formulário de senha para também esconder
+            if (formToToggle.id === 'formulario-senha') {
+                formToToggle.style.visibility = 'hidden';
+            }
+            formToToggle = null; // Limpa a referência após usar
+        }
     });
 
     modalCancelamento?.querySelector('.btn-nao').addEventListener('click', () => {
@@ -153,6 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
         fecharModal(modalCancelamento);
         if (formToToggle) {
             toggleCampos(formToToggle, false);
+            // Verifica se é o formulário de senha para também esconder
+            if (formToToggle.id === 'formulario-senha') {
+                formToToggle.style.visibility = 'hidden';
+            }
             formToToggle = null; // Limpa a referência após usar
         }
     });
@@ -161,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('form').forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            formToToggle = form; // Salva a referência do formulário na submissão
             abrirModal(modalSucesso);
             toggleCampos(form, false);
         });
@@ -182,11 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Adiciona os eventos de clique para os botões "Cancelar"
-    document.querySelectorAll('.btn-cancelar').forEach(btn => {
+    // Adiciona os eventos de clique para os botões "Cancelar" e "Cancelar Senha"
+    document.querySelectorAll('.btn-cancelar, .btn-cancelar-senha').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            formToToggle = e.target.closest('form'); // Salva a referência do formulário
+            formToToggle = e.target.closest('form');
             abrirModal(modalCancelamento);
         });
     });
