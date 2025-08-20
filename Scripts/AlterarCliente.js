@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const campos = formulario.querySelectorAll('input, select, textarea');
         const botoesExtras = formulario.querySelectorAll('button.remove-btn, #btnBuscarCep');
         const btnAlterar = formulario.querySelector('.btn-alterar');
-        const btnCancelar = formulario.querySelector('.btn-cancelar, .btn-cancelar-senha');
-        const btnSalvar = formulario.querySelector('.btn-salvar, .btn-salvar-senha');
+        const btnCancelar = formulario.querySelector('.btn-cancelar');
+        const btnSalvar = formulario.querySelector('.btn-salvar');
         
         if (!btnAlterar || !btnCancelar || !btnSalvar) return;
 
@@ -118,14 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleCampos(form, false);
     });
 
-    window.toggleSenha = function() {
-        const formSenha = document.getElementById('formulario-senha');
-        formSenha.style.visibility = formSenha.style.visibility === 'hidden' ? 'visible' : 'hidden';
-    };
-    
     // Lógica para abrir/fechar modais
     const modalSucesso = document.getElementById('success-modal');
     const modalCancelamento = document.getElementById('cancel-modal');
+    const modalSenha = document.getElementById('senha-modal'); // Adicione a referência ao modal de senha
 
     function abrirModal(modal) {
         if (modal) modal.style.display = 'block';
@@ -134,25 +130,37 @@ document.addEventListener('DOMContentLoaded', () => {
     function fecharModal(modal) {
         if (modal) modal.style.display = 'none';
     }
+    
+    // NOVO: Função para abrir o modal de senha
+    window.abrirModalSenha = function() {
+        abrirModal(modalSenha);
+    };
 
+    // Fechar modais ao clicar no 'x'
     document.querySelectorAll('.close-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             fecharModal(e.target.closest('.modal'));
+            // Limpa o formulário de senha ao fechar
+            if (e.target.closest('.modal').id === 'senha-modal') {
+                e.target.closest('form').reset();
+            }
         });
     });
 
+    // Lógica do modal de sucesso (ajustada para fechar o modal de senha)
     modalSucesso?.querySelector('.close-btn').addEventListener('click', () => {
         fecharModal(modalSucesso);
         if (formToToggle) {
-            toggleCampos(formToToggle, false);
-            // Verifica se é o formulário de senha para também esconder
-            if (formToToggle.id === 'formulario-senha') {
-                formToToggle.style.visibility = 'hidden';
+            if (formToToggle.id !== 'formulario-senha') {
+                toggleCampos(formToToggle, false);
+            } else {
+                fecharModal(modalSenha);
             }
-            formToToggle = null; // Limpa a referência após usar
+            formToToggle = null;
         }
     });
 
+    // Lógica do modal de cancelamento
     modalCancelamento?.querySelector('.btn-nao').addEventListener('click', () => {
         fecharModal(modalCancelamento);
     });
@@ -160,22 +168,46 @@ document.addEventListener('DOMContentLoaded', () => {
     modalCancelamento?.querySelector('.btn-sim').addEventListener('click', () => {
         fecharModal(modalCancelamento);
         if (formToToggle) {
-            toggleCampos(formToToggle, false);
-            // Verifica se é o formulário de senha para também esconder
-            if (formToToggle.id === 'formulario-senha') {
-                formToToggle.style.visibility = 'hidden';
+            if (formToToggle.id !== 'formulario-senha') {
+                toggleCampos(formToToggle, false);
+            } else {
+                fecharModal(modalSenha);
             }
-            formToToggle = null; // Limpa a referência após usar
+            formToToggle = null;
         }
     });
 
     // Submissão dos formulários
     document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', (e) => {
+       form.addEventListener('submit', (e) => {
             e.preventDefault();
-            formToToggle = form; // Salva a referência do formulário na submissão
-            abrirModal(modalSucesso);
-            toggleCampos(form, false);
+            formToToggle = form;
+            if (form.id === 'formulario-senha') {
+                // A lógica de submissão do formulário de senha
+                const novaSenha = document.getElementById('nova-senha').value;
+                const confirmacaoSenha = document.getElementById('confirmacao-nova-senha').value;
+
+                if (novaSenha !== confirmacaoSenha) {
+                    alert('A nova senha e a confirmação não correspondem!');
+                    return;
+                }
+
+                // Simula o envio
+                console.log('Dados da senha enviados!');
+
+                // Fechar o modal de senha primeiro
+                fecharModal(modalSenha);
+
+                // Abre o modal de sucesso
+                abrirModal(modalSucesso);
+                
+                // Limpa o formulário de senha após a submissão
+                form.reset();
+            } else {
+                // Lógica para os outros formulários
+                abrirModal(modalSucesso);
+                toggleCampos(form, false);
+            }
         });
     });
 
@@ -200,7 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             formToToggle = e.target.closest('form');
-            abrirModal(modalCancelamento);
+            if (formToToggle.id === 'formulario-senha') {
+                fecharModal(modalSenha);
+                formToToggle.reset();
+            } else {
+                abrirModal(modalCancelamento);
+            }
         });
     });
 });

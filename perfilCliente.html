@@ -28,6 +28,33 @@
     </div>
 </div>
 
+<div id="senha-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <form class="formulario-senha" id="formulario-senha">
+            <h2>Alterar Senha</h2>
+            <div class="linha">
+                <div class="coluna-50">
+                    <label for="senha-atual" class="label-campo">Senha Atual</label>
+                    <input type="password" id="senha-atual" class="input-campo" required>
+                </div>
+                <div class="coluna-50">
+                    <label for="nova-senha" class="label-campo">Nova Senha</label>
+                    <input type="password" id="nova-senha" class="input-campo" required>
+                </div>
+                <div class="coluna-50">
+                    <label for="confirmacao-nova-senha" class="label-campo">Confirmação da Nova Senha</label>
+                    <input type="password" id="confirmacao-nova-senha" class="input-campo" required>
+                </div>
+            </div>
+            <div class="linha btn-acao">
+                <button type="button" class="btn-principal btn-cancelar-senha">Cancelar</button>
+                <button type="submit" class="btn-principal btn-salvar-senha">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <body>
     <header id="navbar-container"></header>
 
@@ -108,33 +135,13 @@
                         </div>
                         <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar Telefone</button>
                         <div class="linha btn-acao">
-                            <button type="button" class="btn-principal btn-alterar-senha" onclick="toggleSenha()">Alterar Senha</button>
+                            <button type="button" class="btn-principal btn-alterar-senha" onclick="abrirModalSenha()">Alterar Senha</button>
                             <button type="button" class="btn-principal btn-alterar" onclick="toggleCampos(this.closest('form'))"> Alterar Informações</button>
                             <button type="button" class="btn-principal btn-cancelar" style="visibility: hidden">Cancelar</button>
                             <button type="submit" class="btn-principal btn-salvar" style="visibility: hidden">Salvar</button>
                         </div>
                     </form>
-                    <form class="formulario-senha" id="formulario-senha" style="visibility: hidden;">
-                        <h2>Alterar Senha</h2>
-                        <div class="linha">
-                            <div class="coluna-50">
-                                <label for="senha-atual" class="label-campo">Senha Atual</label>
-                                <input type="password" id="senha-atual" class="input-campo" required>
-                            </div>
-                            <div class="coluna-50">
-                                <label for="nova-senha" class="label-campo">Nova Senha</label>
-                                <input type="password" id="nova-senha" class="input-campo" required>
-                            </div>
-                            <div class="coluna-50">
-                                <label for="confirmacao-nova-senha" class="label-campo">Confirmação da Nova Senha</label>
-                                <input type="password" id="confirmacao-nova-senha" class="input-campo" required>
-                            </div>
-                        </div>
-                        <div class="linha btn-acao">
-                            <button type="button" class="btn-principal btn-cancelar-senha">Cancelar</button>
-                            <button type="submit" class="btn-principal btn-salvar-senha">Salvar</button>
-                        </div>
-                    </form>
+                    
                 </div>
 
                 <div id="enderecos" class="section">
