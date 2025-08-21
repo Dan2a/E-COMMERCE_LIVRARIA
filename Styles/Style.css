@@ -49,6 +49,32 @@ h2{
     text-decoration: none;
 }
 
+/* Fundo escuro do modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Caixa do modal */
+  .modal-content {
+    background: white;
+    margin: 50px auto;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    position: relative;
+    animation: slideDown 0.4s ease-out;
+  }
+  
+
 .navbar-search {
     flex: 1;
     display: flex;
