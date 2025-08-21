@@ -26,9 +26,8 @@ setInterval(() => {
   showSlide(currentIndex + 1);
 }, 7000);
 
-// Inicializa
+// Inicializa carrosel
 showSlide(0);
-
 
 // Livros
 const books = Array.from({ length: 100 }, (_, i) => ({
@@ -67,7 +66,7 @@ function renderBooks(page) {
     // Evento de clique no card (ou você pode deixar só no botão "Comprar")
     card.addEventListener("click", () => {
       // aqui você pode decidir: abrir modal, redirecionar ou trocar de página
-      window.location.href = `/livro.html?id=${book.id}`;
+      window.location.href = `/detalhesProduto.html`; // ?id=${book.id}
     });
 
     container.appendChild(card);
@@ -110,6 +109,6 @@ function changePage(page) {
   renderPagination();
 }
 
-// Inicialização
+// Inicialização dos card dos livros e paginação
 renderBooks(currentPage);
 renderPagination();
