@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             formToToggle = null;
         }
+        location.reload();
     });
 
     // Submissão dos formulários
@@ -238,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 abrirModal(modalCancelamento);
             }
+            
         });
+        
     });
 });
