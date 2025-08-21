@@ -66,7 +66,7 @@ function renderBooks(page) {
     // Evento de clique no card (ou você pode deixar só no botão "Comprar")
     card.addEventListener("click", () => {
       // aqui você pode decidir: abrir modal, redirecionar ou trocar de página
-      window.location.href = `/detalhesProduto.html`; // ?id=${book.id}
+      window.location.href = `/E-COMMERCE_LIVRARIA/detalhesProduto.html`; // ?id=${book.id}
     });
 
     container.appendChild(card);
