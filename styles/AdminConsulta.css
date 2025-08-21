@@ -1,3 +1,7 @@
+.content-area{
+  flex: 1;
+  min-height: 0;
+}
 .formulario-consulta {
   max-width: 80%;
   margin: auto;
@@ -5,8 +9,6 @@
   border-radius: 8px;
   font-family: Arial, sans-serif;
 }
-
-
 
 .linha {
   display: flex;
@@ -34,7 +36,6 @@
     grid-template-columns: 1fr; /* empilha no celular */
   }
 }
-
 
 .label-campo {
   display: block;
