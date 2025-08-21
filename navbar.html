@@ -1,21 +1,25 @@
-<nav class="navbar">
-    <a href="index.html" class="navbar-logo">LivraTec</a>
-    <form class="navbar-search" action="#" method="get">
-        <input type="text" placeholder="Pesquisar livros..." name="search">
-        <button type="submit">Pesquisar</button>
-    </form>
-    <div class="navbar-buttons">
-        <div class="user-box">
-            <a href="perfilCliente.html">
-                <i class="cart-icon fa-solid fa-circle-user"></i>
-            </a>            
-            <div class="user-text">
-                <p class="welcome">Olá, bem-vindo(a)!</p>
-                <a href="adminConsulta.html" class="link">Entre</a> ou 
-                <a href="cadastroCliente.html" class="link">cadastre-se</a>
+<section class="navbar">
+    <div class="cont">
+        <nav class="navbar">
+            <a href="index.html" class="navbar-logo">LivraTec</a>
+            <form class="navbar-search" action="#" method="get">
+                <input type="text" placeholder="Pesquisar livros..." name="search">
+                <button type="submit">Pesquisar</button>
+            </form>
+            <div class="navbar-buttons">
+                <div class="user-box">
+                    <a href="perfilCliente.html">
+                        <i class="cart-icon fa-solid fa-circle-user"></i>
+                    </a>
+                    <div class="user-text">
+                        <p class="welcome">Olá, bem-vindo(a)!</p>
+                        <a href="adminConsulta.html" class="link">Entre</a> ou
+                        <a href="cadastroCliente.html" class="link">cadastre-se</a>
+                    </div>
+                </div>
+                <i class="cart-icon fa-solid fa-bag-shopping"></i>
+                <i class="cart-icon fas fa-shopping-cart" onclick="openCart()"></i>
             </div>
-        </div>
-
-        <i class="cart-icon fas fa-shopping-cart" onclick="openCart()"></i>
+        </nav>
     </div>
-</nav>
+</section>
