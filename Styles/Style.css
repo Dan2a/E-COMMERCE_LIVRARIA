@@ -212,19 +212,29 @@ h2{
 }
 
 .close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
     background: red;
+    width: 25px;
+    height: 25px;
     border: none;
-    color: #fff;
-    width: 30px;
-    height: 30px;
     border-radius: 50%;
-    font-size: 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
+
 
 .close-btn:hover {
     background-color: darkred;
 }
+
 
 .cart-items {
     flex: 1;

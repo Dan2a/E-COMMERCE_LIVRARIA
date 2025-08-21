@@ -289,23 +289,7 @@
     animation: slideDown 0.4s ease-out;
   }
   
-  /* Botão fechar */
-  .close-btn {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s, color 0.2s;
-  }
-  .close-btn:hover {
-    color: darkred;
-  }
+  
 
   .botoes-cancelar {
     display: flex;
