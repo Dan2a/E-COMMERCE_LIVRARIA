@@ -119,60 +119,112 @@
                     <h1>Minha conta</h1>
                     <p>Mantenha seus dados cadastrais atualizados.</p>
                 </div>
-                <div id="pedidos" class="section">
+               <div id="pedidos" class="section">
                     <div class="secao-pedidos">
                         <h2>Pedidos</h2>
-                        <div class="tabela-container">
-                            <table class="tabela-pedidos">
-                                <thead>
-                                    <tr>
-                                        <th>Número do Pedido</th>
-                                        <th>Data</th>
-                                        <th>Status</th>
-                                        <th>Total</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>12345</td>
-                                        <td>01/05/2024</td>
-                                        <td>Entregue</td>
-                                        <td>R$ 150,00</td>
-                                        <td><button class="btn-principal btn-detalhes" onclick="mostrarDetalhes(this)">Detalhes</button></td>
-                                    </tr>
-                                    <tr class="detalhes-pedido" style="display: none;">
-                                        <td colspan="5">
-                                            <strong>Itens:</strong>
-                                            <ul>
-                                                <li>Livro A - R$ 50,00</li>
-                                                <li>Livro B - R$ 100,00</li>
-                                            </ul>
-                                            <strong>Endereço de Entrega:</strong> Rua Exemplo, 123, Bairro, Cidade, Estado, CEP
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>12346</td>
-                                        <td>15/05/2024</td>
-                                        <td>Em Trânsito</td>
-                                        <td>R$ 200,00</td>
-                                        <td><button class="btn-principal btn-detalhes" onclick="mostrarDetalhes(this)">Detalhes</button></td>
-                                    </tr>
-                                    <tr class="detalhes-pedido" style="display: none;">
-                                        <td colspan="5">
-                                            <strong>Itens:</strong>
-                                            <ul>
-                                                <li>Livro C - R$ 200,00</li>
-                                            </ul>
-                                            <strong>Endereço de Entrega:</strong> Avenida Exemplo, 456, Bairro, Cidade, Estado, CEP
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                        <!-- Pedido 1 -->
+                        <div class="pedido-container">
+                            <div class="pedido-card">
+                            <div class="pedido-info">
+                                <p><strong>Pedido:</strong> 12345</p>
+                                <p><strong>Data:</strong> 01/05/2024</p>
+                                <p><strong>Status:</strong> Entregue</p>
+                                <p><strong>Total:</strong> R$ 150,00</p>
+                                <button class="btn-principal btn-detalhes" onclick="toggleDetalhes(this)">Detalhes</button>
+                            </div>
+
+                            <!-- Detalhes (inicialmente escondidos) -->
+                            <div class="pedido-detalhes" style="display: none;">
+                                <h4>Itens:</h4>
+
+                                <div class="cart-item">
+                                <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg" alt="Livro A">
+                                <div class="item-info">
+                                    <p class="item-name">Livro A</p>
+                                    <p class="item-price">R$ 50,00</p>
+                                    <div class="item-actions">
+                                        <div class="itens-venda">
+                                            <div class="itens-total">
+                                                <div class="itens-quantidade">
+                                                <label>Qtd: </label>
+                                                <input type="number" value="1" min="1" disabled>
+                                                </div>
+                                                <label>Total: R$ 50,00</label>   
+                                            </div>
+                                            <button class="btn-principal btn-troca">Trocar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="cart-item">
+                                <img src="https://m.media-amazon.com/images/I/81af+MCATTL._SY466_.jpg" alt="Livro B">
+                                <div class="item-info">
+                                    <p class="item-name">Livro B</p>
+                                    <p class="item-price">R$ 100,00</p>
+                                    <div class="item-actions">
+                                        <div class="itens-venda">
+                                            <div class="itens-total">
+                                                <div class="itens-quantidade">
+                                                <label>Qtd: </label>
+                                                <input type="number" value="1" min="1" disabled>
+                                                </div>
+                                                <label>Total: R$ 100,00</label>   
+                                            </div>
+                                            <button class="btn-principal btn-troca">Trocar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <h4>Endereço de Entrega:</h4>
+                                <p>Rua Exemplo, 123, Bairro, Cidade, Estado, CEP</p>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Outro pedido -->
+                        <div class="pedido-container">
+                            <div class="pedido-card">
+                                <div class="pedido-info">
+                                    <p><strong>Pedido:</strong> 12346</p>
+                                    <p><strong>Data:</strong> 15/05/2024</p>
+                                    <p><strong>Status:</strong> Em Trânsito</p>
+                                    <p><strong>Total:</strong> R$ 200,00</p>
+                                    <button class="btn-principal btn-detalhes" onclick="toggleDetalhes(this)">Detalhes</button>
+                                </div>
+                                <!-- Detalhes (inicialmente escondidos) -->
+                                <div class="pedido-detalhes" style="display: none;">
+                                    <h4>Itens:</h4>
+
+                                    <div class="cart-item">
+                                        <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg" alt="Livro C">
+                                        <div class="item-info">
+                                            <p class="item-name">Livro C</p>
+                                            <p class="item-price">R$ 200,00</p>
+                                            <div class="item-actions">
+                                                <div class="itens-venda">
+                                                    <div class="itens-total">
+                                                        <div class="itens-quantidade">
+                                                            <label>Qtd: </label>
+                                                            <input type="number" value="1" min="1" disabled>
+                                                        </div>
+                                                        <label>Total: R$ 200,00</label>   
+                                                    </div>
+                                                    <button class="btn-principal btn-troca" style="display:none;">Trocar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4>Endereço de Entrega:</h4>
+                                    <p>Avenida Exemplo, 456, Bairro, Cidade, Estado, CEP</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
+
                 
                 <div id="dados" class="section">
                     <form class="formulario-dados-pessoais" id="formulario-dados-pessoais">

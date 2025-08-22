@@ -12,40 +12,81 @@
   padding: 20px 10px;
   position: relative;
 }
-.tabela-container {
-  overflow-x: auto;
-  max-width: 100%;
-  margin: auto;
-  font-family: Arial, sans-serif;
-}
-.tabela-pedidos {
-  width: 100%;
-  border-collapse: collapse;
-  background: #f9f9f9;
+
+
+.pedido-card {
+  background: #fff;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  overflow: hidden;
+  margin: 15px 0;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.tabela-pedidos th,
-.tabela-pedidos td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.pedido-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.tabela-pedidos th {
+.pedido-info p {
+  margin: 0;
+}
+
+.pedido-detalhes  > * + *{
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.cart-item img {
+  width: 80px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.item-info {
+  flex: 1;
+}
+.itens-total{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.itens-venda {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.btn-troca {
   background: var(--cor-botao);
-  color: white;
-  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
-.tabela-pedidos tr:hover {
-  background-color: #f1f1f1;
-}
-
-.tabela-pedidos td:last-child {
-  text-align: center;
-}
 /* Texto inicial */
 .initial-message {
   text-align: center;
