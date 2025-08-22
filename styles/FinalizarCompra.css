@@ -45,7 +45,7 @@ body {
 
 .coluna {
   flex: 1%;
-  min-width: 200px;
+  min-width: 80px;
 }
 .coluna-50{
   flex: 0 0 50%;
