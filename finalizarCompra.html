@@ -138,6 +138,17 @@
                                     </div>  
                             </form>
                         </div>
+                        <div id="card-container-frete">
+                                <div id="card-template-frete" class="card-container" ">
+                                    <div class="linha">
+                                        <div class="coluna">
+                                             <label class="label-campo"> Total do frete: <span id="valorFrete">R$ 15,00</span> </label>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                
+                        </div>
                     </div>
 
                     <div class="secao-itens">
@@ -150,11 +161,19 @@
                                 <p class="item-name">Entendendo Algoritmos</p>
                                 <p class="item-descricao">Livro Exemplo</p>
                                 <p class="item-price">R$ 59,90</p>
-                                <div class="item-actions">
-                                    <input type="number" value="1" min="1">
-                                    <button class="trash-btn" onclick="removeItem(this)">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
+                                 <div class="item-actions">
+                                    <div class="itens-venda">
+                                        <div class="item-quantidade">
+                                            <input type="number" class ="itemQuantidade" value="1" min="1">
+                                            <button class="trash-btn" onclick="removeItem(this)">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                        <div class="itens-total">
+                                            <label class="label-campo">Total: </label>
+                                            <label class="label-campo valorTotal">R$ 0,00</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,10 +185,18 @@
                                 <p class="item-descricao">Livro Exemplo</p>
                                 <p class="item-price">R$ 71,90</p>
                                 <div class="item-actions">
-                                    <input type="number" value="1" min="1">
-                                    <button class="trash-btn" onclick="removeItem(this)">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
+                                    <div class="itens-venda">
+                                        <div class="item-quantidade">
+                                            <input type="number" class ="itemQuantidade" value="1" min="1">
+                                            <button class="trash-btn" onclick="removeItem(this)">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                        <div class="itens-total">
+                                            <label class="label-campo">Total: </label>
+                                            <label class="label-campo valorTotal">R$ 0,00</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -256,16 +283,32 @@
                             </div>
                             <button type="button" class="btn-principal" onclick="addCard('cupom')">Adicionar Cupom</button>
                         </form>
+
+                        <div id="card-container-total">
+                                <div id="card-template-total" class="card-container" ">
+                                    <label class="label-campo"> A pagar </label>
+                                    <div class="linha">
+                                        <div class="coluna">
+                                            <p> Itens:  R$ 131,80 </p>
+                                            <p> Frete: R$ 15,00 </p>
+                                            <p> Cupons:- R$ 15,00 </p>
+                                            <p> Total: 131,80 </p>
+                                        </div>
+                                    </div>
+                                    <div class="acoes-compra">
+                                        <button type="button" id="btnFinalizar" class="btn-principal">
+                                            Finalizar Compra
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                        </div>
+                        
                     </div>
 
 
             </div>  
-
-            <div class="acoes-compra">
-                <button type="button" id="btnFinalizar" class="btn-principal">
-                    Finalizar Compra
-                </button>
-            </div>       
+                  
         </div>
     </main>
 

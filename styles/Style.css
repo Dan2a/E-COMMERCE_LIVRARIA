@@ -346,6 +346,13 @@ h2{
     gap: 10px;
     align-items: center;
 }
+.itens-venda {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
 .item-actions input {
     width: 50px;

@@ -110,7 +110,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
-  margin-bottom: 12px;
+  margin: 12px 0 12px 0 ;
   transition: background 0.3s;
 }
 
@@ -208,7 +208,13 @@ body {
   padding: 15px;
   border-radius: 8px;
   background: #f9f9f9;
-  margin-bottom: 2rem;
+  gap:8px;
+}
+#card-template-total, #card-templ {
+  display:flex;
+  align-items: start;
+  flex-direction: column;
+
 }
 .formulario-endereco-novo-entrega{
   position: relative;
@@ -278,9 +284,10 @@ label{
 }
 
 .acoes-compra {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+ /*ficar na direita*/
+ position: absolute;
+ bottom: 20px;
+ right: 20px;
 }
 
 #btnFinalizar {
