@@ -209,6 +209,7 @@ body {
   border-radius: 8px;
   background: #f9f9f9;
   gap:8px;
+  margin-top:20px;
 }
 #card-template-total, #card-templ {
   display:flex;
