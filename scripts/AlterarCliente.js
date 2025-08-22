@@ -243,4 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
     });
+    
 });
+function toggleDetalhes(btn) {
+  const detalhes = btn.closest('.pedido-card').querySelector('.pedido-detalhes');
+  detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+}
