@@ -63,6 +63,7 @@
         <div class="container">
             <!-- sidebar menu -->
             <aside class="sidebar">
+                <button class="menu-btn" data-section="pedidos" onclick="resetFormularios()">📦 Pedidos</button>
                 <button class="menu-btn" data-section="dados" onclick="resetFormularios()">📄 Dados Pessoais</button>
                 <button class="menu-btn" data-section="enderecos" onclick="resetFormularios()">📍 Endereços</button>
                 <button class="menu-btn" data-section="cartoes" onclick="resetFormularios()">💳 Cartões de Crédito</button>
@@ -118,7 +119,61 @@
                     <h1>Minha conta</h1>
                     <p>Mantenha seus dados cadastrais atualizados.</p>
                 </div>
+                <div id="pedidos" class="section">
+                    <div class="secao-pedidos">
+                        <h2>Pedidos</h2>
+                        <div class="tabela-container">
+                            <table class="tabela-pedidos">
+                                <thead>
+                                    <tr>
+                                        <th>Número do Pedido</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
+                                        <th>Total</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>12345</td>
+                                        <td>01/05/2024</td>
+                                        <td>Entregue</td>
+                                        <td>R$ 150,00</td>
+                                        <td><button class="btn-principal btn-detalhes" onclick="mostrarDetalhes(this)">Detalhes</button></td>
+                                    </tr>
+                                    <tr class="detalhes-pedido" style="display: none;">
+                                        <td colspan="5">
+                                            <strong>Itens:</strong>
+                                            <ul>
+                                                <li>Livro A - R$ 50,00</li>
+                                                <li>Livro B - R$ 100,00</li>
+                                            </ul>
+                                            <strong>Endereço de Entrega:</strong> Rua Exemplo, 123, Bairro, Cidade, Estado, CEP
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>12346</td>
+                                        <td>15/05/2024</td>
+                                        <td>Em Trânsito</td>
+                                        <td>R$ 200,00</td>
+                                        <td><button class="btn-principal btn-detalhes" onclick="mostrarDetalhes(this)">Detalhes</button></td>
+                                    </tr>
+                                    <tr class="detalhes-pedido" style="display: none;">
+                                        <td colspan="5">
+                                            <strong>Itens:</strong>
+                                            <ul>
+                                                <li>Livro C - R$ 200,00</li>
+                                            </ul>
+                                            <strong>Endereço de Entrega:</strong> Avenida Exemplo, 456, Bairro, Cidade, Estado, CEP
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
+                </div>
+                
                 <div id="dados" class="section">
                     <form class="formulario-dados-pessoais" id="formulario-dados-pessoais">
                         <h2>Dados Pessoais</h2>
