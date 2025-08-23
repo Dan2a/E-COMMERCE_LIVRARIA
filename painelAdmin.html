@@ -160,9 +160,43 @@
 
         <!-- Seção Relatórios -->
         <div id="relatorios" class="section">
-          <h2>Relatórios de Análise</h2>
-          <canvas id="grafico-vendas" width="400" height="200"></canvas>
-          <canvas id="grafico-produtos" width="400" height="200"></canvas>
+          <div class="header-relatorios">
+            <h2>Relatórios de Análise</h2>
+          </div>
+
+          <!-- Filtro de período para análise -->
+          <div id="filtroRelatorio" class="painel-filtro">
+            <form class="formulario-consulta">
+              <div class="grid-filtros">
+                <div class="campo-filtro">
+                  <label for="dataInicio">Data de Início</label>
+                  <input type="date" id="dataInicio">
+                </div>
+                <div class="campo-filtro">
+                  <label for="dataFim">Data de Fim</label>
+                  <input type="date" id="dataFim">
+                </div>
+              </div>
+              <div class="linha btn-acao">
+                <button type="button" class="btn-principal" id="btnFiltrarRelatorio">Filtrar</button>
+                <button type="button" class="btn-principal" id="btnLimparRelatorio">Limpar</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="dashboard-graficos">
+            <!-- Gráfico de linhas: histórico de vendas -->
+            <div class="grafico-container">
+              <h3>Histórico de Vendas</h3>
+              <canvas id="graficoVendasLinha" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Gráfico de barras: vendas por status -->
+            <div class="grafico-container">
+              <h3>Vendas por Status</h3>
+              <canvas id="graficoVendasStatus" width="400" height="200"></canvas>
+            </div>
+          </div>
         </div>
 
         <!-- Seção Vendas -->
