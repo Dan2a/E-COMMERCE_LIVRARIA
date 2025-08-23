@@ -41,11 +41,11 @@ const btnSim = inativarModal.querySelector(".btn-sim");
 
 // Lista de clientes
 const clientes = [
-  { nome: "Ana Maria", dataNasc: "15/03/1990", cpf: "123.456.789-00", telefone: "(11) 98765-4321", email: "ana.maria@email.com" },
-  { nome: "Bruno Silva", dataNasc: "22/07/1985", cpf: "987.654.321-00", telefone: "(21) 91234-5678", email: "bruno.silva@email.com" },
-  { nome: "Carla Souza", dataNasc: "08/11/1992", cpf: "456.123.789-00", telefone: "(31) 99876-5432", email: "carla.souza@email.com" },
-  { nome: "João Silva", dataNasc: "13/03/2000", cpf: "123.456.789-00", telefone: "(11) 99806-4723", email: "joao@mail.com" },
-  { nome: "Mariana Costa", dataNasc: "05/05/1995", cpf: "321.654.987-00", telefone: "(21) 98765-1234", email: "mariana.costa@mail.com" },
+  { nome: "Ana Maria", dataNasc: "15/03/1990", cpf: "123.456.789-00", telefone: "(11) 98765-4321", email: "ana.maria@email.com", status: "Ativo" },
+  { nome: "Bruno Silva", dataNasc: "22/07/1985", cpf: "987.654.321-00", telefone: "(21) 91234-5678", email: "bruno.silva@email.com", status: "Ativo" },
+  { nome: "Carla Souza", dataNasc: "08/11/1992", cpf: "456.123.789-00", telefone: "(31) 99876-5432", email: "carla.souza@email.com", status: "Inativo" },
+  { nome: "João Silva", dataNasc: "13/03/2000", cpf: "123.456.789-00", telefone: "(11) 99806-4723", email: "joao@mail.com", status: "Ativo" },
+  { nome: "Mariana Costa", dataNasc: "05/05/1995", cpf: "321.654.987-00", telefone: "(21) 98765-1234", email: "mariana.costa@mail.com", status: "Inativo" },
 ];
 
 // Função para criar linhas da tabela
@@ -57,9 +57,9 @@ clientes.forEach((c) => {
     <td>${c.cpf}</td>
     <td>${c.telefone}</td>
     <td>${c.email}</td>
+    <td>${c.status}</td>
     <td>
       <button class="btn-acao-tabela btn-historico"><i class="fa-solid fa-clock-rotate-left"></i></button>
-      <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
       <button class="btn-acao-tabela btn-inativar"><i class="fa-solid fa-ban"></i></button>
     </td>
   `;
@@ -90,7 +90,7 @@ clientes.forEach((c) => {
   // Abrir modal de inativar cliente
   const btnInativar = tr.querySelector(".btn-inativar");
   btnInativar.addEventListener("click", () => {
-    inativarModal.style.display = "block";
+    inativarModal.style.display = "flex";
   });
 });
 

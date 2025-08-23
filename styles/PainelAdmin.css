@@ -240,7 +240,7 @@
 
 /* Modal inativar cliente */
 #inativar-modal {
-  display: flex; 
+  display: none; 
   position: fixed; 
   z-index: 1000; 
   align-items: center;
