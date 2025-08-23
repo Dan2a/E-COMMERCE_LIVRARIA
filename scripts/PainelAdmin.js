@@ -1,3 +1,4 @@
+// CLIENTE
 const buttons = document.querySelectorAll(".menu-btn");
 const sections = document.querySelectorAll(".section");
 
@@ -12,6 +13,27 @@ buttons.forEach((btn) => {
   });
 });
 
+// Exemplo de histórico de transações por cliente
+const historicoTransacoes = {
+  "João Silva": [
+    { dataHora: "20/08/2025 10:15", valor: 150.0, frete: 10.0, status: "Concluída" },
+    { dataHora: "15/07/2025 14:40", valor: 200.0, frete: 15.0, status: "Pendente" }
+  ],
+  "Maria Souza": [
+    { dataHora: "10/08/2025 12:30", valor: 300.0, frete: 20.0, status: "Concluída" }
+  ],
+  "Ana Maria": [   // Histórico para Ana Maria
+    { dataHora: "01/08/2025 09:00", valor: 120.0, frete: 8.0, status: "Concluída" },
+    { dataHora: "05/08/2025 16:45", valor: 250.0, frete: 12.0, status: "Pendente" }
+  ],
+  // Adicione outros clientes aqui...
+};
+
+const tbodyClientes = document.getElementById("clientes-tbody");
+const modalHistorico = document.getElementById("modalHistorico");
+const btnFecharHistorico = document.getElementById("btnFecharHistorico");
+const tbodyHistorico = document.querySelector("#tabelaHistorico tbody");
+
 // Adicionar clientes (exemplo)
 const clientes = [
   { nome: "Ana Maria", dataNasc: "15/03/1990", cpf: "123.456.789-00", telefone: "(11) 98765-4321", email: "ana.maria@email.com" },
@@ -21,7 +43,6 @@ const clientes = [
   { nome: "Mariana Costa", dataNasc: "05/05/1995", cpf: "321.654.987-00", telefone: "(21) 98765-1234", email: "mariana.costa@mail.com" },
 ];
 
-const tbodyClientes = document.getElementById("clientes-tbody");
 clientes.forEach((c) => {
   const tr = document.createElement("tr");
   tr.innerHTML = `
@@ -31,23 +52,45 @@ clientes.forEach((c) => {
     <td>${c.telefone}</td>
     <td>${c.email}</td>
     <td>
+      <button class="btn-acao-tabela btn-historico"><i class="fa-solid fa-clock-rotate-left"></i></button>
       <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
       <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
     </td>
   `;
   tbodyClientes.appendChild(tr);
+
+  // Evento para abrir o modal de histórico
+  const btnHistorico = tr.querySelector(".btn-historico");
+  btnHistorico.addEventListener("click", () => {
+    tbodyHistorico.innerHTML = ""; // limpa histórico anterior
+    const transacoes = historicoTransacoes[c.nome] || [];
+    if (transacoes.length === 0) {
+      tbodyHistorico.innerHTML = `<tr><td colspan="4" style="text-align:center;">Nenhuma transação encontrada</td></tr>`;
+    } else {
+      transacoes.forEach(t => {
+        const trHist = document.createElement("tr");
+        trHist.innerHTML = `
+          <td>${t.dataHora}</td>
+          <td>R$ ${t.valor.toFixed(2)}</td>
+          <td>R$ ${t.frete.toFixed(2)}</td>
+          <td>${t.status}</td>
+        `;
+        tbodyHistorico.appendChild(trHist);
+      });
+    }
+    modalHistorico.classList.add("active");
+  });
 });
 
-// Painel de filtro
-const btnAbrirFiltro = document.getElementById("btnAbrirFiltro");
-const painelFiltro = document.getElementById("painelFiltro");
-const btnFecharFiltro = document.getElementById("btnFecharFiltro");
-const btnLimpar = document.getElementById("btnLimpar");
+// Fechar modal
+btnFecharHistorico.addEventListener("click", () => {
+  modalHistorico.classList.remove("active");
+});
 
-btnAbrirFiltro.addEventListener("click", () => painelFiltro.style.display = "block");
-btnFecharFiltro.addEventListener("click", () => painelFiltro.style.display = "none");
-btnLimpar.addEventListener("click", () => document.getElementById("formFiltro").reset());
-
+// Fechar clicando fora do conteúdo
+modalHistorico.addEventListener("click", (e) => {
+  if (e.target === modalHistorico) modalHistorico.classList.remove("active");
+});
 
 // ESTOQUE
 const btnAbrirFiltroEstoque = document.getElementById("btnAbrirFiltroEstoque");

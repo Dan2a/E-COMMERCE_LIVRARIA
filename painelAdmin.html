@@ -91,6 +91,28 @@
               <!-- Clientes adicionados via JS -->
             </tbody>
           </table>
+          <!-- Modal de Histórico de Transações -->
+          <div id="modalHistorico" class="modal-filtro">
+            <div class="modal-conteudo">
+              <h3>Histórico de Transações</h3>
+              <table class="tabela-clientes" id="tabelaHistorico">
+                <thead>
+                  <tr>
+                    <th>Data e Hora</th>
+                    <th>Valor</th>
+                    <th>Frete</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Histórico preenchido via JS -->
+                </tbody>
+              </table>
+              <div class="linha btn-acao" style="justify-content: flex-end; margin-top: 10px;">
+                <button type="button" class="btn-principal" id="btnFecharHistorico">Fechar</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Seção Estoque -->
