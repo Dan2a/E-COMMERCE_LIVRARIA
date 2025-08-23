@@ -1,0 +1,67 @@
+/* Mantém o layout de sidebar + conteúdo */
+.container {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.sidebar {
+  width: 220px;
+  background: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  gap: 10px;
+}
+
+.sidebar .menu-btn {
+  background: #34495e;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.sidebar .menu-btn.active, .sidebar .menu-btn:hover {
+  background: #1abc9c;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.initial-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.tabela-dados {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.tabela-dados th, .tabela-dados td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabela-dados th {
+  background: #f0f0f0;
+}

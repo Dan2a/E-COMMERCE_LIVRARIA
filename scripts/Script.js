@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // verifica se a página é login ou cadastro
       if (
         path.includes("cadastroCliente.html") ||
-        path.includes("adminConsulta.html")
+        path.includes("adminConsulta.html") ||
+        path.includes("painelAdmin.html")
       ) {
         document.querySelector(".navbar-search").style.display = "none";
         const navbarSearch = document.querySelector(".navbar-search");

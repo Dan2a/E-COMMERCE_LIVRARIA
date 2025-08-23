@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Controle - Admin</title>
+  <link rel="stylesheet" href="styles/Style.css">
+  <link rel="stylesheet" href="styles/PainelAdmin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header id="navbar-container"></header>
+
+  <main class="main">
+    <div class="container">
+      <!-- sidebar menu -->
+      <aside class="sidebar">
+        <button class="menu-btn" data-section="clientes">👥 Clientes</button>
+        <button class="menu-btn" data-section="estoque">📦 Controle de Estoque</button>
+        <button class="menu-btn" data-section="relatorios">📊 Relatórios de Análise</button>
+        <button class="menu-btn" data-section="vendas">💰 Gerenciar Vendas</button>
+      </aside>
+
+      <div class="content">
+        <div id="initial" class="initial-message">
+          <h1>Bem-vindo, Administrador</h1>
+          <p>Selecione uma opção no menu para visualizar os dados.</p>
+        </div>
+
+        <!-- Seção Clientes -->
+        <div id="clientes" class="section">
+          <h2>Clientes Cadastrados</h2>
+          <table class="tabela-dados">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>CPF</th>
+                <th>Data de Cadastro</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="clientes-tbody">
+              <!-- Clientes serão adicionados via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Seção Estoque -->
+        <div id="estoque" class="section">
+          <h2>Controle de Estoque</h2>
+          <table class="tabela-dados">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="estoque-tbody">
+              <!-- Produtos adicionados via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Seção Relatórios -->
+        <div id="relatorios" class="section">
+          <h2>Relatórios de Análise</h2>
+          <canvas id="grafico-vendas" width="400" height="200"></canvas>
+          <canvas id="grafico-produtos" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Seção Vendas -->
+        <div id="vendas" class="section">
+          <h2>Transações Realizadas</h2>
+          <table class="tabela-dados">
+            <thead>
+              <tr>
+                <th>ID Venda</th>
+                <th>Cliente</th>
+                <th>Data</th>
+                <th>Total</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="vendas-tbody">
+              <!-- Vendas adicionadas via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 LivraTec. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="scripts/Script.js"></script>
+  <script src="scripts/PainelAdmin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
