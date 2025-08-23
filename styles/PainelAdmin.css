@@ -133,3 +133,65 @@
     grid-template-columns: 1fr; /* empilha no celular */
   }
 }
+
+/* ==========================
+   Estilo da Tabela
+   ========================== */
+.tabela-container {
+  overflow-x: auto;
+  max-width: 80%;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.tabela-clientes {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela-clientes th,
+.tabela-clientes td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela-clientes th {
+  background: var(--cor-botao);
+  color: white;
+  font-weight: bold;
+}
+
+.tabela-clientes tr:hover {
+  background-color: #f1f1f1;
+}
+
+.tabela-clientes td:last-child {
+  text-align: center;
+}
+.btn-acao-tabela {
+  background-color: var(--cor-botao);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+  margin: 0 2px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.btn-acao-tabela:hover {
+  background-color: #0056b3;
+}
+
+.btn-acao-tabela i {
+  font-size: 1.2rem;
+}
