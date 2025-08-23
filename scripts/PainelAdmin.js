@@ -220,6 +220,7 @@ const estoque = [
     fornecedor: "Fornecedor X",
     dataEntrada: "2025-08-01",
     valorCusto: 50.0,
+    status: "Ativo",
   },
   {
     idLivro: 2,
@@ -228,6 +229,7 @@ const estoque = [
     fornecedor: "Fornecedor Y",
     dataEntrada: "2025-08-05",
     valorCusto: 35.0,
+    status: "Ativo",
   },
   {
     idLivro: 3,
@@ -236,6 +238,7 @@ const estoque = [
     fornecedor: "Fornecedor Z",
     dataEntrada: "2025-08-10",
     valorCusto: 42.5,
+    status: "Ativo",
   },
 ];
 
@@ -249,13 +252,44 @@ estoque.forEach((item) => {
     <td>${item.fornecedor}</td>
     <td>${item.dataEntrada}</td>
     <td>R$ ${item.valorCusto.toFixed(2)}</td>
+    <td>${item.status}</td>
     <td>
       <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
-      <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
     </td>
   `;
   tbodyEstoque.appendChild(tr);
 });
+
+// MODAL ESTOQUE
+// Seletores do modal
+const modalEditarEstoque = document.getElementById("modalEditarEstoque");
+const btnFecharModalEstoque = document.getElementById("btnFecharModalEstoque");
+const btnCancelarEditar = document.getElementById("btnCancelarEditar");
+
+// Abrir modal ao clicar no botão editar
+document.querySelectorAll(".btn-acao-tabela").forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    // Aqui no futuro você pode carregar os dados do item[index]
+    modalEditarEstoque.style.display = "block";
+  });
+});
+
+// Fechar modal
+btnFecharModalEstoque.addEventListener("click", () => {
+  modalEditarEstoque.style.display = "none";
+});
+
+btnCancelarEditar.addEventListener("click", () => {
+  modalEditarEstoque.style.display = "none";
+});
+
+// Fechar modal clicando fora dele
+window.addEventListener("click", (e) => {
+  if (e.target === modalEditarEstoque) {
+    modalEditarEstoque.style.display = "none";
+  }
+});
+
 
 // vendas
 
