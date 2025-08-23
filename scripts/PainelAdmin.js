@@ -93,3 +93,45 @@ estoque.forEach(item => {
 });
 
 
+// vendas
+
+const btnAbrirFiltroVendas = document.getElementById("btnAbrirFiltroVendas");
+const painelFiltroVendas = document.getElementById("painelFiltroVendas");
+const btnFecharFiltroVendas = document.getElementById("btnFecharFiltroVendas");
+const btnLimparVendas = document.getElementById("btnLimparVendas");
+
+btnAbrirFiltroVendas.addEventListener("click", () => {
+  painelFiltroVendas.classList.toggle("active");
+});
+
+btnFecharFiltroVendas.addEventListener("click", () => {
+  painelFiltroVendas.classList.remove("active");
+});
+
+btnLimparVendas.addEventListener("click", () => {
+  document.getElementById("formFiltroVendas").reset();
+});
+
+// Adicionar vendas (exemplo)
+const vendas = [
+  { idVenda: 101, cliente: "Ana Maria", data: "2025-08-01", total: 150.50, status: "Concluída" },
+  { idVenda: 102, cliente: "Bruno Silva", data: "2025-08-05", total: 320.00, status: "Pendente" },
+  { idVenda: 103, cliente: "Carla Souza", data: "2025-08-10", total: 75.25, status: "Cancelada" },
+];
+
+const tbodyVendas = document.getElementById("vendas-tbody");
+vendas.forEach(item => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${item.idVenda}</td>
+    <td>${item.cliente}</td>
+    <td>${item.data}</td>
+    <td>R$ ${item.total.toFixed(2)}</td>
+    <td>${item.status}</td>
+    <td>
+      <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
+      <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
+    </td>
+  `;
+  tbodyVendas.appendChild(tr);
+});
