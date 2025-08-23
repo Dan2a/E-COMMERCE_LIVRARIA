@@ -17,6 +17,9 @@
 .section.active {
   display: block;
 }
+#painelFiltro.active {
+  display: block;
+}
 
 .tabela-dados {
   width: 100%;
@@ -333,7 +336,7 @@
 }
 
 .painel-filtro {
-  max-width: 80%;
+  max-width: 100%;
   margin: 10px auto 20px;
   padding: 15px;
   background-color: #fff;
