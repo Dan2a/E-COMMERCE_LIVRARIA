@@ -20,8 +20,9 @@
       <aside class="sidebar">
         <button class="menu-btn active" data-section="clientes">👥 Clientes</button>
         <button class="menu-btn" data-section="estoque">📦 Controle de Estoque</button>
-        <button class="menu-btn" data-section="relatorios">📊 Relatórios de Análise</button>
         <button class="menu-btn" data-section="vendas">💰 Gerenciar Vendas</button>
+        <button class="menu-btn" data-section="relatorios">📊 Relatórios de Análise</button>
+
       </aside>
 
       <div class="content">
@@ -69,7 +70,7 @@
               <div class="linha btn-acao">
                 <button type="button" class="btn-principal">Filtrar</button>
                 <button type="button" class="btn-principal" id="btnLimpar">Limpar</button>
-                <button type="button" class="btn-principal" id="btnFecharFiltro">Fechar</button>
+                <button type="button" class="btn-principal btnFechar" id="btnFecharFiltro">Fechar</button>
               </div>
             </form>
           </div>
@@ -90,6 +91,71 @@
               <!-- Clientes adicionados via JS -->
             </tbody>
           </table>
+        </div>
+
+        <!-- Seção Estoque -->
+        <div id="estoque" class="section">
+          <div class="header-estoque">
+            <h2>Controle de Estoque</h2>
+            <button id="btnAbrirFiltroEstoque" class="btn-principal">Filtrar</button>
+          </div>
+
+          <!-- Painel de filtro -->
+          <div id="painelFiltroEstoque" class="painel-filtro">
+            <form id="formFiltroEstoque" class="formulario-consulta">
+              <div class="grid-filtros">
+                <div class="campo-filtro">
+                  <label for="idLivro">ID do Livro</label>
+                  <input type="text" id="idLivro" placeholder="Digite o ID do livro">
+                </div>
+                <div class="campo-filtro">
+                  <label for="tituloLivro">Título do Livro</label>
+                  <input type="text" id="tituloLivro" placeholder="Digite o título">
+                </div>
+                <div class="campo-filtro">
+                  <label for="quantidadeMin">Quantidade Mínima</label>
+                  <input type="number" id="quantidadeMin" placeholder="Qtd mínima">
+                </div>
+                <div class="campo-filtro">
+                  <label for="quantidadeMax">Quantidade Máxima</label>
+                  <input type="number" id="quantidadeMax" placeholder="Qtd máxima">
+                </div>
+                <div class="campo-filtro">
+                  <label for="dataEntrada">Data de Entrada</label>
+                  <input type="date" id="dataEntrada">
+                </div>
+                <div class="campo-filtro">
+                  <label for="fornecedor">Fornecedor</label>
+                  <input type="text" id="fornecedor" placeholder="Digite o fornecedor">
+                </div>
+              </div>
+              <div class="linha btn-acao">
+                <button type="button" class="btn-principal">Filtrar</button>
+                <button type="button" class="btn-principal" id="btnLimparEstoque">Limpar</button>
+                <button type="button" class="btn-principal btnFechar" id="btnFecharFiltroEstoque">Fechar</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Tabela de Estoque -->
+          <div class="tabela-container">
+            <table class="tabela-clientes">
+              <thead>
+                <tr>
+                  <th>ID Livro</th>
+                  <th>Título</th>
+                  <th>Quantidade</th>
+                  <th>Fornecedor</th>
+                  <th>Data de Entrada</th>
+                  <th>Valor de Custo</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="estoque-tbody">
+                <!-- Itens adicionados via JS -->
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Seção Relatórios -->

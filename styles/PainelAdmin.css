@@ -106,11 +106,11 @@
   margin-top: 10px;
 }
 
-#btnFecharFiltro{
+.btnFechar{
     background: red;
 }
 
-#btnFecharFiltro:hover {
+.btnFechar:hover {
     background: darkred;
 }
 
@@ -139,7 +139,7 @@
    ========================== */
 .tabela-container {
   overflow-x: auto;
-  max-width: 80%;
+  max-width: 100%;
   margin: auto;
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -194,4 +194,26 @@
 
 .btn-acao-tabela i {
   font-size: 1.2rem;
+}
+
+/* ESTOQUE */
+
+.header-estoque {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#painelFiltroEstoque {
+  display: none;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+#painelFiltroEstoque.active {
+  display: block;
 }

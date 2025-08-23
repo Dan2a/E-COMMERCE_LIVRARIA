@@ -47,3 +47,49 @@ const btnLimpar = document.getElementById("btnLimpar");
 btnAbrirFiltro.addEventListener("click", () => painelFiltro.style.display = "block");
 btnFecharFiltro.addEventListener("click", () => painelFiltro.style.display = "none");
 btnLimpar.addEventListener("click", () => document.getElementById("formFiltro").reset());
+
+
+// ESTOQUE
+const btnAbrirFiltroEstoque = document.getElementById("btnAbrirFiltroEstoque");
+const painelFiltroEstoque = document.getElementById("painelFiltroEstoque");
+const btnFecharFiltroEstoque = document.getElementById("btnFecharFiltroEstoque");
+const btnLimparEstoque = document.getElementById("btnLimparEstoque");
+
+btnAbrirFiltroEstoque.addEventListener("click", () => {
+  painelFiltroEstoque.classList.toggle("active");
+});
+
+btnFecharFiltroEstoque.addEventListener("click", () => {
+  painelFiltroEstoque.classList.remove("active");
+});
+
+btnLimparEstoque.addEventListener("click", () => {
+  document.getElementById("formFiltroEstoque").reset();
+});
+
+// Adicionar produtos (exemplo)
+const estoque = [
+  { idLivro: 1, titulo: "Livro A", quantidade: 10, fornecedor: "Fornecedor X", dataEntrada: "2025-08-01", valorCusto: 50.00 },
+  { idLivro: 2, titulo: "Livro B", quantidade: 0, fornecedor: "Fornecedor Y", dataEntrada: "2025-08-05", valorCusto: 35.00 },
+  { idLivro: 3, titulo: "Livro C", quantidade: 5, fornecedor: "Fornecedor Z", dataEntrada: "2025-08-10", valorCusto: 42.50 },
+];
+
+const tbodyEstoque = document.getElementById("estoque-tbody");
+estoque.forEach(item => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${item.idLivro}</td>
+    <td>${item.titulo}</td>
+    <td>${item.quantidade}</td>
+    <td>${item.fornecedor}</td>
+    <td>${item.dataEntrada}</td>
+    <td>R$ ${item.valorCusto.toFixed(2)}</td>
+    <td>
+      <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
+      <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
+    </td>
+  `;
+  tbodyEstoque.appendChild(tr);
+});
+
+
