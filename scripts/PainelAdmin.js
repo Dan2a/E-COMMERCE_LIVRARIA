@@ -539,6 +539,6 @@ btnCancelarStatus.addEventListener("click", () => {
 //fecha modal clicando fora
 window.addEventListener("click", (e) => {
   if (e.target === modalStatusTroca) {
-    modalStatusTroca.style.display = "none";
+        modalStatusTroca.classList.remove("active");
   }
 });
