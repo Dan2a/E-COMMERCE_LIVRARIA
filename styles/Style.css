@@ -63,7 +63,7 @@ h2{
 
 /* Sidebar grudada na esquerda (mas não fixa) */
 .sidebar {
-  width: 270px;
+  width: 15%;
   background: #f8f9fa;
   border-right: 1px solid #ddd;
   padding: 20px 0 15px 0;
