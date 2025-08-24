@@ -64,124 +64,93 @@
         <div class="container">
             <!-- sidebar menu -->
             <aside class="sidebar">
-                <button class="menu-btn" data-section="pedidos" onclick="resetFormularios()"><i class="fas fa-box"></i> Pedidos</button>
-                <button class="menu-btn" data-section="dados" onclick="resetFormularios()"><i class="fas fa-id-card"></i> Dados Pessoais</button>
-                <button class="menu-btn" data-section="enderecos" onclick="resetFormularios()"><i class="fas fa-map-marker-alt"></i> Endereços</button>
-                <button class="menu-btn" data-section="cartoes" onclick="resetFormularios()"><i class="fas fa-credit-card"></i> Cartões de Crédito</button>
-                <button class="menu-btn" data-section="cupons" onclick="resetFormularios()"><i class="fas fa-ticket-alt"></i> Cupons</button>
+                <button class="menu-btn" data-section="pedidos" onclick="resetFormularios()"><i class="fas fa-box"></i>
+                    Pedidos</button>
+                <button class="menu-btn" data-section="dados" onclick="resetFormularios()"><i
+                        class="fas fa-id-card"></i> Dados Pessoais</button>
+                <button class="menu-btn" data-section="enderecos" onclick="resetFormularios()"><i
+                        class="fas fa-map-marker-alt"></i> Endereços</button>
+                <button class="menu-btn" data-section="cartoes" onclick="resetFormularios()"><i
+                        class="fas fa-credit-card"></i> Cartões de Crédito</button>
+                <button class="menu-btn" data-section="cupons" onclick="resetFormularios()"><i
+                        class="fas fa-ticket-alt"></i> Cupons</button>
             </aside>
+
             <!-- Slidebar do carrinho -->
-            <div id="cartSidebar" class="cart-sidebar">
-                <div class="cart-header">
-                    <h2>Carrinho</h2>
-                    <button type="button" class="s close-btn-cart" title="Fechar Carrinho" onclick="closeCart()">&times;</button>
-                </div>
-
-                <div class="cart-items">
-                    <!-- Exemplo de item -->
-                    <div class="cart-item">
-                        <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg" alt="Livro Exemplo">
-                        <div class="item-info">
-                            <p class="item-name">Entendendo Algoritmos</p>
-                            <p class="item-descricao">Livro Exemplo</p>
-                            <p class="item-price">R$ 59,90</p>
-                            <div class="item-actions">
-                                <input type="number" value="1" min="1">
-                                <button class="trash-btn" onclick="removeItem(this)">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-item">
-                        <img src="https://m.media-amazon.com/images/I/41RfuBLUbWL._SY445_SX342_ControlCacheEqualizer_.jpg"
-                            alt="Livro Exemplo">
-                        <div class="item-info">
-                            <p class="item-name">Algoritmos e Lógica da Programação</p>
-                            <p class="item-descricao">Livro Exemplo</p>
-                            <p class="item-price">R$ 71,90</p>
-                            <div class="item-actions">
-                                <input type="number" value="1" min="1">
-                                <button class="trash-btn" onclick="removeItem(this)">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart-footer">
-                    <button class="checkout-btn">Finalizar Compra</button>
-                </div>
-            </div>
+            <div id="cartSidebar" class="cart-sidebar"></div>
 
             <div class="content">
                 <div id="initial" class="initial-message">
                     <h1>Minha conta</h1>
                     <p>Mantenha seus dados cadastrais atualizados.</p>
                 </div>
-               <div id="pedidos" class="section">
+                <div id="pedidos" class="section">
                     <div class="secao-pedidos">
                         <h2>Pedidos</h2>
 
                         <!-- Pedido 1 -->
                         <div class="pedido-container">
                             <div class="pedido-card">
-                            <div class="pedido-info">
-                                <p><strong>Pedido:</strong> 12345</p>
-                                <p><strong>Data:</strong> 01/05/2024</p>
-                                <p><strong>Status:</strong> Entregue</p>
-                                <p><strong>Total:</strong> R$ 150,00</p>
-                                <button class="btn-principal btn-detalhes" onclick="toggleDetalhes(this)">Detalhes</button>
-                            </div>
+                                <div class="pedido-info">
+                                    <p><strong>Pedido:</strong> 12345</p>
+                                    <p><strong>Data:</strong> 01/05/2024</p>
+                                    <p><strong>Status:</strong> Entregue</p>
+                                    <p><strong>Total:</strong> R$ 150,00</p>
+                                    <button class="btn-principal btn-detalhes"
+                                        onclick="toggleDetalhes(this)">Detalhes</button>
+                                </div>
 
-                            <!-- Detalhes (inicialmente escondidos) -->
-                            <div class="pedido-detalhes" style="display: none;">
-                                <h4>Itens:</h4>
+                                <!-- Detalhes (inicialmente escondidos) -->
+                                <div class="pedido-detalhes" style="display: none;">
+                                    <h4>Itens:</h4>
 
-                                <div class="cart-item">
-                                <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg" alt="Livro A">
-                                <div class="item-info">
-                                    <p class="item-name">Livro A</p>
-                                    <p class="item-price">R$ 50,00</p>
-                                    <div class="item-actions">
-                                        <div class="itens-venda">
-                                            <div class="itens-total">
-                                                <div class="itens-quantidade">
-                                                <label>Qtd: </label>
-                                                <input type="number" value="1" min="1" disabled>
+                                    <div class="cart-item">
+                                        <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg"
+                                            alt="Livro A">
+                                        <div class="item-info">
+                                            <p class="item-name">Livro A</p>
+                                            <p class="item-price">R$ 50,00</p>
+                                            <div class="item-actions">
+                                                <div class="itens-venda">
+                                                    <div class="itens-total">
+                                                        <div class="itens-quantidade">
+                                                            <label>Qtd: </label>
+                                                            <input type="number" value="1" min="1" disabled>
+                                                        </div>
+                                                        <label>Total: R$ 50,00</label>
+                                                    </div>
+                                                    <button class="btn-principal btn-troca"
+                                                        onclick="window.location.href='telaTroca.html'">Trocar</button>
                                                 </div>
-                                                <label>Total: R$ 50,00</label>   
                                             </div>
-                                            <button class="btn-principal btn-troca" onclick="window.location.href='telaTroca.html'">Trocar</button>
                                         </div>
                                     </div>
-                                </div>
-                                </div>
 
-                                <div class="cart-item">
-                                <img src="https://m.media-amazon.com/images/I/81af+MCATTL._SY466_.jpg" alt="Livro B">
-                                <div class="item-info">
-                                    <p class="item-name">Livro B</p>
-                                    <p class="item-price">R$ 100,00</p>
-                                    <div class="item-actions">
-                                        <div class="itens-venda">
-                                            <div class="itens-total">
-                                                <div class="itens-quantidade">
-                                                <label>Qtd: </label>
-                                                <input type="number" value="1" min="1" disabled>
+                                    <div class="cart-item">
+                                        <img src="https://m.media-amazon.com/images/I/81af+MCATTL._SY466_.jpg"
+                                            alt="Livro B">
+                                        <div class="item-info">
+                                            <p class="item-name">Livro B</p>
+                                            <p class="item-price">R$ 100,00</p>
+                                            <div class="item-actions">
+                                                <div class="itens-venda">
+                                                    <div class="itens-total">
+                                                        <div class="itens-quantidade">
+                                                            <label>Qtd: </label>
+                                                            <input type="number" value="1" min="1" disabled>
+                                                        </div>
+                                                        <label>Total: R$ 100,00</label>
+                                                    </div>
+                                                    <button class="btn-principal btn-troca"
+                                                        onclick="window.location.href='telaTroca.html'">Trocar</button>
                                                 </div>
-                                                <label>Total: R$ 100,00</label>   
                                             </div>
-                                            <button class="btn-principal btn-troca" onclick="window.location.href='telaTroca.html'">Trocar</button>
                                         </div>
                                     </div>
-                                </div>
-                                </div>
 
-                                <h4>Endereço de Entrega:</h4>
-                                <p>Rua Exemplo, 123, Bairro, Cidade, Estado, CEP</p>
-                            </div>
+                                    <h4>Endereço de Entrega:</h4>
+                                    <p>Rua Exemplo, 123, Bairro, Cidade, Estado, CEP</p>
+                                </div>
                             </div>
                         </div>
                         <!-- Outro pedido -->
@@ -192,14 +161,16 @@
                                     <p><strong>Data:</strong> 15/05/2024</p>
                                     <p><strong>Status:</strong> Em Trânsito</p>
                                     <p><strong>Total:</strong> R$ 200,00</p>
-                                    <button class="btn-principal btn-detalhes" onclick="toggleDetalhes(this)">Detalhes</button>
+                                    <button class="btn-principal btn-detalhes"
+                                        onclick="toggleDetalhes(this)">Detalhes</button>
                                 </div>
                                 <!-- Detalhes (inicialmente escondidos) -->
                                 <div class="pedido-detalhes" style="display: none;">
                                     <h4>Itens:</h4>
 
                                     <div class="cart-item">
-                                        <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg" alt="Livro C">
+                                        <img src="https://m.media-amazon.com/images/I/71Vkg7GfPFL._SY385_.jpg"
+                                            alt="Livro C">
                                         <div class="item-info">
                                             <p class="item-name">Livro C</p>
                                             <p class="item-price">R$ 200,00</p>
@@ -210,9 +181,11 @@
                                                             <label>Qtd: </label>
                                                             <input type="number" value="1" min="1" disabled>
                                                         </div>
-                                                        <label>Total: R$ 200,00</label>   
+                                                        <label>Total: R$ 200,00</label>
                                                     </div>
-                                                    <button class="btn-principal btn-troca" onclick="window.location.href='telaTroca.html'" style="display:none;">Trocar</button>
+                                                    <button class="btn-principal btn-troca"
+                                                        onclick="window.location.href='telaTroca.html'"
+                                                        style="display:none;">Trocar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -226,7 +199,7 @@
                     </div>
                 </div>
 
-                
+
                 <div id="dados" class="section">
                     <form class="formulario-dados-pessoais" id="formulario-dados-pessoais">
                         <h2>Dados Pessoais</h2>
@@ -243,7 +216,7 @@
                             </div>
                             <div class="coluna-50">
                                 <label for="genero" class="label-campo">Gênero</label>
-                                <select id="genero" class="input-campo"  disabled>
+                                <select id="genero" class="input-campo" disabled>
                                     <option value="">Escolha...</option>
                                     <option>Masculino</option>
                                     <option>Feminino</option>
@@ -254,11 +227,11 @@
                         <div class="linha">
                             <div class="coluna-50">
                                 <label for="cpf" class="label-campo">CPF</label>
-                                <input type="text" id="cpf" class="input-campo"  disabled>
+                                <input type="text" id="cpf" class="input-campo" disabled>
                             </div>
                             <div class="coluna-50">
                                 <label for="email" class="label-campo">E-mail</label>
-                                <input type="email" id="email" class="input-campo"  disabled>
+                                <input type="email" id="email" class="input-campo" disabled>
                             </div>
                         </div>
 
@@ -267,7 +240,7 @@
                             <div id="telefone-template" class="linha telefone-container" style="display: none;">
                                 <div class="coluna-25">
                                     <label class="label-campo">Tipo</label>
-                                    <select class="input-campo" name="tipo"  disabled>
+                                    <select class="input-campo" name="tipo" disabled>
                                         <option value="">Tipo</option>
                                         <option value="CELULAR">Celular</option>
                                         <option value="FIXO">Fixo</option>
@@ -276,26 +249,33 @@
                                 </div>
                                 <div class="coluna-25">
                                     <label class="label-campo">DDD</label>
-                                    <input class="input-campo" type="text" name="ddd" placeholder="DDD"  disabled>
+                                    <input class="input-campo" type="text" name="ddd" placeholder="DDD" disabled>
                                 </div>
                                 <div class="coluna-50 numero-coluna">
                                     <label class="label-campo">Número</label>
                                     <div class="numero-wrapper">
-                                        <input class="input-campo" type="text" name="numero" placeholder="Número"  disabled>
-                                        <button type="button" class="remove-btn" title="Remover Telefone" disabled>&times;</button>
+                                        <input class="input-campo" type="text" name="numero" placeholder="Número"
+                                            disabled>
+                                        <button type="button" class="remove-btn" title="Remover Telefone"
+                                            disabled>&times;</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar Telefone</button>
+                        <button type="button" class="btn-principal" onclick="adicionarTelefone()">+ Adicionar
+                            Telefone</button>
                         <div class="linha btn-acao">
-                            <button type="button" class="btn-principal btn-alterar-senha" onclick="abrirModalSenha()">Alterar Senha</button>
-                            <button type="button" class="btn-principal btn-alterar" onclick="toggleCampos(this.closest('form'))"> Alterar Informações</button>
-                            <button type="button" class="btn-principal btn-cancelar" style="visibility: hidden">Cancelar</button>
-                            <button type="submit" class="btn-principal btn-salvar" style="visibility: hidden">Salvar</button>
+                            <button type="button" class="btn-principal btn-alterar-senha"
+                                onclick="abrirModalSenha()">Alterar Senha</button>
+                            <button type="button" class="btn-principal btn-alterar"
+                                onclick="toggleCampos(this.closest('form'))"> Alterar Informações</button>
+                            <button type="button" class="btn-principal btn-cancelar"
+                                style="visibility: hidden">Cancelar</button>
+                            <button type="submit" class="btn-principal btn-salvar"
+                                style="visibility: hidden">Salvar</button>
                         </div>
                     </form>
-                    
+
                 </div>
 
                 <div id="enderecos" class="section">
@@ -307,7 +287,7 @@
                                 <div class="linha">
                                     <div class="coluna-50">
                                         <label class="label-campo" for="tipoResidencia">Tipo de Residência</label>
-                                        <select class="input-campo" id="tipoResidencia" name="tipoResidencia"  disabled>
+                                        <select class="input-campo" id="tipoResidencia" name="tipoResidencia" disabled>
                                             <option value="">Selecione</option>
                                             <option value="CASA">Casa</option>
                                             <option value="APARTAMENTO">Apartamento</option>
@@ -319,7 +299,8 @@
                                     <div class="coluna-50">
                                         <label class="label-campo" for="cep">CEP</label>
                                         <div class="cepInputGroup ">
-                                            <input class="input-campo" type="text" id="cep" name="cep"  maxlength="9" placeholder="00000-000" disabled>
+                                            <input class="input-campo" type="text" id="cep" name="cep" maxlength="9"
+                                                placeholder="00000-000" disabled>
                                             <button type="button" id="btnBuscarCep" title="Buscar CEP" disabled>
                                                 <i class="fa-solid fa-magnifying-glass"></i>
                                             </button>
@@ -329,7 +310,7 @@
                                 <div class="linha">
                                     <div class="coluna-25">
                                         <label class="label-campo" for="tipoLogradouro">Tipo de Logradouro</label>
-                                        <select class="input-campo" id="tipoLogradouro" name="tipoLogradouro"  disabled>
+                                        <select class="input-campo" id="tipoLogradouro" name="tipoLogradouro" disabled>
                                             <option value="">Selecione</option>
                                             <option value="RUA">Rua</option>
                                             <option value="AVENIDA">Avenida</option>
@@ -344,31 +325,32 @@
                                     </div>
                                     <div class="coluna-50">
                                         <label class="label-campo" for="logradouro">Logradouro</label>
-                                        <input class="input-campo" type="text" id="logradouro" name="logradouro"  disabled>
+                                        <input class="input-campo" type="text" id="logradouro" name="logradouro"
+                                            disabled>
                                     </div>
                                     <div class="coluna-25">
                                         <label class="label-campo" for="numero">Número</label>
-                                        <input class="input-campo" type="text" id="numero" name="numero"  disabled>
+                                        <input class="input-campo" type="text" id="numero" name="numero" disabled>
                                     </div>
                                 </div>
                                 <div class="linha">
                                     <div class="coluna-50">
                                         <label class="label-campo" for="bairro">Bairro</label>
-                                        <input class="input-campo" type="text" id="bairro" name="bairro"  disabled>
+                                        <input class="input-campo" type="text" id="bairro" name="bairro" disabled>
                                     </div>
                                     <div class="coluna-50">
                                         <label class="label-campo" for="cidade">Cidade</label>
-                                        <input class="input-campo" type="text" id="cidade" name="cidade"  disabled>
+                                        <input class="input-campo" type="text" id="cidade" name="cidade" disabled>
                                     </div>
                                 </div>
                                 <div class="linha">
                                     <div class="coluna-50">
                                         <label class="label-campo" for="estado">Estado</label>
-                                        <input class="input-campo" type="text" id="estado" name="estado"  disabled>
+                                        <input class="input-campo" type="text" id="estado" name="estado" disabled>
                                     </div>
                                     <div class="coluna-50">
                                         <label class="label-campo" for="pais">País</label>
-                                        <input class="input-campo" type="text" id="pais" name="pais"  disabled>
+                                        <input class="input-campo" type="text" id="pais" name="pais" disabled>
                                     </div>
                                 </div>
                                 <div class="linha">
@@ -380,8 +362,10 @@
                                 <div class="linha">
                                     <div class="coluna">
                                         <div class="checkbox-group">
-                                            <label><input type="checkbox" name="endereco-entrega" disabled> Endereço de Entrega</label>
-                                            <label><input type="checkbox" name="endereco-cobranca" disabled> Endereço de Cobrança</label>
+                                            <label><input type="checkbox" name="endereco-entrega" disabled> Endereço de
+                                                Entrega</label>
+                                            <label><input type="checkbox" name="endereco-cobranca" disabled> Endereço de
+                                                Cobrança</label>
                                         </div>
                                     </div>
                                 </div>
@@ -389,9 +373,12 @@
                         </div>
                         <button type="button" class="btn-principal" onclick="addAddress()">Adicionar Endereço</button>
                         <div class="linha btn-acao">
-                            <button type="button" class="btn-principal btn-alterar" onclick="toggleCampos(this.closest('form'))"> Alterar Informações</button>
-                            <button type="button" class="btn-principal btn-cancelar" style="visibility: hidden">Cancelar</button>
-                            <button type="submit" class="btn-principal btn-salvar" style="visibility: hidden">Salvar</button>
+                            <button type="button" class="btn-principal btn-alterar"
+                                onclick="toggleCampos(this.closest('form'))"> Alterar Informações</button>
+                            <button type="button" class="btn-principal btn-cancelar"
+                                style="visibility: hidden">Cancelar</button>
+                            <button type="submit" class="btn-principal btn-salvar"
+                                style="visibility: hidden">Salvar</button>
                         </div>
                     </form>
                 </div>
@@ -428,7 +415,8 @@
                                     </div>
                                     <div class="coluna-25">
                                         <label class="label-campo">Validade</label>
-                                        <input type="text" class="input-campo" name="validade" placeholder="MM/AA" disabled>
+                                        <input type="text" class="input-campo" name="validade" placeholder="MM/AA"
+                                            disabled>
                                     </div>
                                 </div>
                                 <div class="linha">
@@ -442,9 +430,12 @@
                         </div>
                         <button type="button" class="btn-principal" onclick="addCard()">Adicionar Cartão</button>
                         <div class="linha btn-acao">
-                            <button type="button" class="btn-principal btn-alterar" onclick="toggleCampos(this.closest('form'))"> Alterar Informações</button>
-                            <button type="button" class="btn-principal btn-cancelar" style="visibility: hidden">Cancelar</button>
-                            <button type="submit" class="btn-principal btn-salvar" style="visibility: hidden">Salvar</button>
+                            <button type="button" class="btn-principal btn-alterar"
+                                onclick="toggleCampos(this.closest('form'))"> Alterar Informações</button>
+                            <button type="button" class="btn-principal btn-cancelar"
+                                style="visibility: hidden">Cancelar</button>
+                            <button type="submit" class="btn-principal btn-salvar"
+                                style="visibility: hidden">Salvar</button>
                         </div>
                     </form>
                 </div>
