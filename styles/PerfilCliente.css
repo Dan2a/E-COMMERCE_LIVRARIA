@@ -41,16 +41,7 @@
   border-top: 1px solid #eee;
 }
 
-.cart-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  background: #fafafa;
-}
+
 
 .cart-item img {
   width: 80px;
