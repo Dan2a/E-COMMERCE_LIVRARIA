@@ -335,7 +335,7 @@
   color: #333;
 }
 
-#modalEditarEstoque .close {
+.close {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -435,4 +435,37 @@
   }
 }
 
+/* TROCAS */
+
+#painelFiltroTrocas.active{
+  display: block;
+
+}
+
+#modalStatusTroca {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+}
+#modalStatusTroca.active {
+  display: flex;
+}
+
+#modalStatusTroca h2{
+    font-size: 1.3rem;
+    margin-top: 0;
+}
+
+#formStatusTroca {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+#formStatusTroca .btn-acao {
+  display: flex;
+  justify-content: center;
+}
 

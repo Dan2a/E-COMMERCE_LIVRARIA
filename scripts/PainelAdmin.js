@@ -354,98 +354,191 @@ vendas.forEach((item) => {
 
 // RELATORIOS
 // Dados fictícios iniciais para gráficos
-let vendasHistorico = [
-  { mes: "Jan", valor: 5000 },
-  { mes: "Fev", valor: 7000 },
-  { mes: "Mar", valor: 4000 },
-  { mes: "Abr", valor: 9000 },
-  { mes: "Mai", valor: 6000 },
-  { mes: "Jun", valor: 7500 },
-];
+// let vendasHistorico = [
+//   { mes: "Jan", valor: 5000 },
+//   { mes: "Fev", valor: 7000 },
+//   { mes: "Mar", valor: 4000 },
+//   { mes: "Abr", valor: 9000 },
+//   { mes: "Mai", valor: 6000 },
+//   { mes: "Jun", valor: 7500 },
+// ];
 
-let vendasStatus = [
-  { status: "Pendente", qtd: 3 },
-  { status: "Concluída", qtd: 5 },
-  { status: "Cancelada", qtd: 1 },
-];
+// let vendasStatus = [
+//   { status: "Pendente", qtd: 3 },
+//   { status: "Concluída", qtd: 5 },
+//   { status: "Cancelada", qtd: 1 },
+// ];
 
-// Criar gráfico de linhas
-const ctxLinha = document.getElementById("graficoVendasLinha").getContext("2d");
-let graficoLinha = new Chart(ctxLinha, {
-  type: "line",
-  data: {
-    labels: vendasHistorico.map((v) => v.mes),
-    datasets: [
-      {
-        label: "Vendas (R$)",
-        data: vendasHistorico.map((v) => v.valor),
-        borderColor: "#1abc9c",
-        backgroundColor: "rgba(26,188,156,0.2)",
-        fill: true,
-        tension: 0.3,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { display: true, position: "top" },
-    },
-    scales: {
-      y: { beginAtZero: true },
-    },
-  },
+// // Criar gráfico de linhas
+// const ctxLinha = document.getElementById("graficoVendasLinha").getContext("2d");
+// let graficoLinha = new Chart(ctxLinha, {
+//   type: "line",
+//   data: {
+//     labels: vendasHistorico.map((v) => v.mes),
+//     datasets: [
+//       {
+//         label: "Vendas (R$)",
+//         data: vendasHistorico.map((v) => v.valor),
+//         borderColor: "#1abc9c",
+//         backgroundColor: "rgba(26,188,156,0.2)",
+//         fill: true,
+//         tension: 0.3,
+//       },
+//     ],
+//   },
+//   options: {
+//     responsive: true,
+//     plugins: {
+//       legend: { display: true, position: "top" },
+//     },
+//     scales: {
+//       y: { beginAtZero: true },
+//     },
+//   },
+// });
+
+// // Criar gráfico de barras
+// const ctxStatus = document
+//   .getElementById("graficoVendasStatus")
+//   .getContext("2d");
+// let graficoStatus = new Chart(ctxStatus, {
+//   type: "bar",
+//   data: {
+//     labels: vendasStatus.map((v) => v.status),
+//     datasets: [
+//       {
+//         label: "Quantidade de Vendas",
+//         data: vendasStatus.map((v) => v.qtd),
+//         backgroundColor: ["#1abc9c", "#3498db", "#e74c3c"],
+//       },
+//     ],
+//   },
+//   options: {
+//     responsive: true,
+//     plugins: { legend: { display: false } },
+//     scales: { y: { beginAtZero: true } },
+//   },
+// });
+
+// // Filtrar histórico de vendas por período (RF0055)
+// document.getElementById("btnFiltrarRelatorio").addEventListener("click", () => {
+//   const inicio = new Date(document.getElementById("dataInicio").value);
+//   const fim = new Date(document.getElementById("dataFim").value);
+
+//   if (!inicio || !fim) return alert("Escolha um período válido");
+
+//   // Filtrando os dados fictícios (exemplo)
+//   const dadosFiltrados = vendasHistorico.filter((v) => {
+//     // Exemplo: assume que mes é o número do mês em string (Jan=1, Fev=2...)
+//     const mesesMap = { Jan: 0, Fev: 1, Mar: 2, Abr: 3, Mai: 4, Jun: 5 };
+//     const dataV = new Date(2025, mesesMap[v.mes], 1);
+//     return dataV >= inicio && dataV <= fim;
+//   });
+
+//   graficoLinha.data.labels = dadosFiltrados.map((v) => v.mes);
+//   graficoLinha.data.datasets[0].data = dadosFiltrados.map((v) => v.valor);
+//   graficoLinha.update();
+// });
+
+// // Limpar filtro
+// document.getElementById("btnLimparRelatorio").addEventListener("click", () => {
+//   document.getElementById("dataInicio").value = "";
+//   document.getElementById("dataFim").value = "";
+
+//   graficoLinha.data.labels = vendasHistorico.map((v) => v.mes);
+//   graficoLinha.data.datasets[0].data = vendasHistorico.map((v) => v.valor);
+//   graficoLinha.update();
+// });
+
+// TROCAS E DEVOLUÇÕES
+const btnAbrirFiltroTrocas = document.getElementById("btnFiltroTrocas");
+const painelFiltroTrocas = document.getElementById("painelFiltroTrocas");
+const btnFecharFiltroTrocas = document.getElementById("btnFecharFiltroTrocas");
+const btnLimparTrocas = document.getElementById("btnLimparTrocas");
+
+btnAbrirFiltroTrocas.addEventListener("click", () => {
+  painelFiltroTrocas.classList.toggle("active");
 });
 
-// Criar gráfico de barras
-const ctxStatus = document
-  .getElementById("graficoVendasStatus")
-  .getContext("2d");
-let graficoStatus = new Chart(ctxStatus, {
-  type: "bar",
-  data: {
-    labels: vendasStatus.map((v) => v.status),
-    datasets: [
-      {
-        label: "Quantidade de Vendas",
-        data: vendasStatus.map((v) => v.qtd),
-        backgroundColor: ["#1abc9c", "#3498db", "#e74c3c"],
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { display: false } },
-    scales: { y: { beginAtZero: true } },
-  },
+btnFecharFiltroTrocas.addEventListener("click", () => {
+  painelFiltroTrocas.classList.remove("active");
 });
 
-// Filtrar histórico de vendas por período (RF0055)
-document.getElementById("btnFiltrarRelatorio").addEventListener("click", () => {
-  const inicio = new Date(document.getElementById("dataInicio").value);
-  const fim = new Date(document.getElementById("dataFim").value);
+btnLimparTrocas.addEventListener("click", () => {
+  document.getElementById("formFiltroTrocas").reset();
+});
 
-  if (!inicio || !fim) return alert("Escolha um período válido");
+// Adicionar solicitações de tr
+const trocas = [
+  {
+    idPedido: 1,
+    cliente: "Ana Maria",
+    produto: "Livro A",
+    dataSolicitacao: "2025-08-15",
+    motivo: "Defeito na impressão",
+    status: "Pendente",
+  },
+  {
+    idPedido: 2,
+    cliente: "Carlos Souza",
+    produto: "Livro B",
+    dataSolicitacao: "2025-08-18",
+    motivo: "Troca por outro título",
+    status: "Aprovada",
+  },
+  {
+    idPedido: 3,
+    cliente: "Fernanda Lima",
+    produto: "Livro C",
+    dataSolicitacao: "2025-08-20",
+    motivo: "Devolução por arrependimento",
+    status: "Recusada",
+  },
+];
 
-  // Filtrando os dados fictícios (exemplo)
-  const dadosFiltrados = vendasHistorico.filter((v) => {
-    // Exemplo: assume que mes é o número do mês em string (Jan=1, Fev=2...)
-    const mesesMap = { Jan: 0, Fev: 1, Mar: 2, Abr: 3, Mai: 4, Jun: 5 };
-    const dataV = new Date(2025, mesesMap[v.mes], 1);
-    return dataV >= inicio && dataV <= fim;
+const tbodyTrocas = document.getElementById("trocas-tbody");
+
+trocas.forEach((item) => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${item.idPedido}</td>
+    <td>${item.cliente}</td>
+    <td>${item.produto}</td>
+    <td>${item.dataSolicitacao}</td>
+    <td>${item.motivo}</td>
+    <td>${item.status}</td>
+    <td>
+      <button class="btn-acao-tabela btnAlterarStatusTroca"><i class='bx bx-edit'></i></button>
+    </td>
+  `;
+  tbodyTrocas.appendChild(tr);
+});
+
+const modalTrocas = document.getElementById("modalTrocas");
+const btnFecharModalTrocas = document.getElementById("btnFecharModalTrocas");
+const modalStatusTroca = document.getElementById("modalStatusTroca");
+const btnFecharStatus = document.getElementById("btnFecharStatus");
+const btnCancelarStatus = document.getElementById("btnCancelarStatus");
+
+// Abrir modal ao clicar no botão de editar
+document.querySelectorAll(".btnAlterarStatusTroca").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    modalStatusTroca.classList.add("active");
   });
-
-  graficoLinha.data.labels = dadosFiltrados.map((v) => v.mes);
-  graficoLinha.data.datasets[0].data = dadosFiltrados.map((v) => v.valor);
-  graficoLinha.update();
 });
 
-// Limpar filtro
-document.getElementById("btnLimparRelatorio").addEventListener("click", () => {
-  document.getElementById("dataInicio").value = "";
-  document.getElementById("dataFim").value = "";
+// Fechar modal
+btnFecharStatus.addEventListener("click", () => {
+  modalStatusTroca.classList.remove("active");
+});
 
-  graficoLinha.data.labels = vendasHistorico.map((v) => v.mes);
-  graficoLinha.data.datasets[0].data = vendasHistorico.map((v) => v.valor);
-  graficoLinha.update();
+btnCancelarStatus.addEventListener("click", () => {
+  modalStatusTroca.classList.remove("active");
+});
+
+//fecha modal clicando fora
+window.addEventListener("click", (e) => {
+  if (e.target === modalStatusTroca) {
+    modalStatusTroca.style.display = "none";
+  }
 });
