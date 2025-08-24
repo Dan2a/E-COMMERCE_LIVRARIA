@@ -119,7 +119,6 @@
 
 .grid-filtros {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* sempre 3 colunas */
   gap: 15px 20px; /* espaço entre os campos */
   margin-bottom: 20px;
 }
@@ -324,7 +323,7 @@
   background: #fff;
   padding: 20px;
   border-radius: 10px;
-  width: 600px;
+  width: 500px;
   max-width: 95%;
   position: relative;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -359,9 +358,14 @@
 
 #modalEditarEstoque .btn-acao {
   display: flex;
-  justify-content: flex-end;
+  width: 100%;
+  justify-content: center;
   gap: 10px;
   margin-top: 15px;
+}
+
+.btn-acao button {
+  width: 40%;
 }
 
 
