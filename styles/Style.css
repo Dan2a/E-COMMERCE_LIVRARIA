@@ -79,11 +79,11 @@ h2{
 }
 
 .sidebar button:hover{
-    background: #0d55a1;
+    background: var(--cor-botao);
     color: white;
 }
 .sidebar button.active {
-  background: #007bff;
+  background: var(--cor-botao);
   color: white;
 }
 /* Fundo escuro do modal */
