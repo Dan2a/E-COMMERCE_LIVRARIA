@@ -4,8 +4,6 @@ const initialMessage = document.getElementById("initial");
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
-    // esconder texto inicial
-    initialMessage.style.display = "none";
 
     // remover ativo de todos
     buttons.forEach(b => b.classList.remove("active"));
