@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalSenha = document.getElementById('senha-modal'); // Adicione a referência ao modal de senha
 
     function abrirModal(modal) {
-        if (modal) modal.style.display = 'block';
+        if (modal) modal.style.display = 'flex';
     }
 
     function fecharModal(modal) {
