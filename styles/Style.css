@@ -45,6 +45,27 @@ h2{
     gap: 10px;
 }
 
+.close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+ .close:hover {
+  background: darkred;
+}
+
 .checkout-btn:hover {
     background: #0056b3;
 }
@@ -111,6 +132,7 @@ h2{
 .modal {
     display: none;
     position: fixed;
+    align-items: center;
     z-index: 1000;
     inset: 0;
     background-color: rgba(0,0,0,0.6);
@@ -118,11 +140,16 @@ h2{
 }
 
 .modal-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     background: white;
     margin: 50px auto;
     padding: 30px 20px;
     border-radius: 10px;
     width: 320px;
+    height: 130px;
     text-align: center;
     font-size: 17px;
     font-weight: 500;
@@ -298,11 +325,6 @@ h2{
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
-}
-
-.close-btn,
-.close-btn-cart:hover {
-    background-color: darkred;
 }
 
 .cart-items {
