@@ -11,6 +11,19 @@ buttons.forEach((btn) => {
 
     btn.classList.add("active");
     document.getElementById(btn.dataset.section).classList.add("active");
+
+    // Fechar todos os modais que usam a classe 'active'
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.classList.remove("active");
+    });
+    // Fechar modais que usam style.display (ex: inativar cliente, editar estoque)
+    const modaisDisplay = [
+      document.getElementById("inativar-modal"),
+      document.getElementById("modalEditarEstoque")
+    ];
+    modaisDisplay.forEach(modal => {
+      if (modal) modal.style.display = "none";
+    });
   });
 });
 
@@ -164,8 +177,7 @@ modalHistorico.addEventListener("click", (e) => {
 });
 
 // Fechar modal inativar
-btnFecharInativar.addEventListener(
-  "click",
+btnFecharInativar.addEventListener("click",
   () => (inativarModal.style.display = "none")
 );
 btnNao.addEventListener("click", () => (inativarModal.style.display = "none"));
@@ -270,7 +282,7 @@ const btnCancelarEditar = document.getElementById("btnCancelarEditar");
 document.querySelectorAll(".btn-acao-tabela").forEach((btn, index) => {
   btn.addEventListener("click", () => {
     // Aqui no futuro você pode carregar os dados do item[index]
-    modalEditarEstoque.style.display = "block";
+    modalEditarEstoque.style.display = "flex";
   });
 });
 
@@ -289,7 +301,6 @@ window.addEventListener("click", (e) => {
     modalEditarEstoque.style.display = "none";
   }
 });
-
 
 // vendas
 
@@ -345,11 +356,38 @@ vendas.forEach((item) => {
     <td>R$ ${item.total.toFixed(2)}</td>
     <td>${item.status}</td>
     <td>
-      <button class="btn-acao-tabela"><i class='bx bx-edit'></i></button>
-      <button class="btn-acao-tabela"><i class='bx bx-trash'></i></button>
+      <button class="btn-acao-tabela btnAlterarStatusVenda"><i class='bx bx-edit'></i></button>
     </td>
   `;
   tbodyVendas.appendChild(tr);
+});
+
+const modalStatusVenda = document.getElementById("modalStatusVenda");
+const btnFecharStatusVenda = document.getElementById("btnFecharStatusVenda");
+const btnCancelarStatusVenda = document.getElementById(
+  "btnCancelarStatusVenda"
+);
+
+// Abrir modal ao clicar no botão de editar venda
+document.querySelectorAll(".btnAlterarStatusVenda").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    modalStatusVenda.classList.add("active");
+  });
+});
+
+// Fechar modal
+btnFecharStatusVenda.addEventListener("click", () => {
+  modalStatusVenda.classList.remove("active");
+});
+btnCancelarStatusVenda.addEventListener("click", () => {
+  modalStatusVenda.classList.remove("active");
+});
+
+// Fechar modal clicando fora
+window.addEventListener("click", (e) => {
+  if (e.target === modalStatusVenda) {
+    modalStatusVenda.classList.remove("active");
+  }
 });
 
 // RELATORIOS
@@ -539,6 +577,6 @@ btnCancelarStatus.addEventListener("click", () => {
 //fecha modal clicando fora
 window.addEventListener("click", (e) => {
   if (e.target === modalStatusTroca) {
-        modalStatusTroca.classList.remove("active");
+    modalStatusTroca.classList.remove("active");
   }
 });

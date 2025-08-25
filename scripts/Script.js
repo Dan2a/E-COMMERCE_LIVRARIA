@@ -25,6 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function carregarCarrinhoSidebar() {
+  fetch('carrinhoCompra.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('cartSidebar').innerHTML = html;
+    });
+}
+
+// Chame essa função quando a página carregar
+document.addEventListener('DOMContentLoaded', carregarCarrinhoSidebar);
+
 function openCart() {
   document.getElementById("cartSidebar").classList.add("active");
 }
@@ -37,6 +48,7 @@ function removeItem(button) {
   const item = button.closest(".cart-item");
   item.remove();
 }
+
 function toggleExpired() {
     const expiredSection = document.getElementById("cart-expired-items");
     const arrow = document.getElementById("expired-arrow");

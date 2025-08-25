@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função genérica para abrir modal
     function abrirModal(modal) {
-        if (modal) modal.style.display = 'block';
+        if (modal) modal.style.display = 'flex';
     }
 
     // Função genérica para fechar modal
