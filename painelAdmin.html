@@ -22,7 +22,8 @@
         <button class="menu-btn active" data-section="clientes"><i class="fas fa-users"></i> Clientes</button>
         <button class="menu-btn" data-section="estoque"><i class="fas fa-box"></i> Controle de Estoque</button>
         <button class="menu-btn" data-section="vendas"><i class="fas fa-coins"></i> Gerenciar Vendas</button>
-        <button class="menu-btn" data-section="relatorios"><i class="fas fa-chart-bar"></i> Relatórios de Análise</button>
+        <button class="menu-btn" data-section="relatorios"><i class="fas fa-chart-bar"></i> Relatórios de
+          Análise</button>
         <button class="menu-btn" data-section="trocas"><i class="fas fa-exchange-alt"></i> Trocas e Devoluções</button>
       </aside>
 
@@ -110,8 +111,8 @@
                   <!-- Histórico preenchido via JS -->
                 </tbody>
               </table>
-              <div class="linha btn-acao" style="justify-content: flex-end; margin-top: 10px;">
-                <button type="button" class="btn-principal" id="btnFecharHistorico">Fechar</button>
+              <div class="linha btn-acao">
+                <button type="button" class="btn-principal btnFechar" id="btnFecharHistorico">Fechar</button>
               </div>
             </div>
           </div>
@@ -122,7 +123,7 @@
               <span class="close-btn close">&times;</span>
               <p>Deseja realmente invativar cliente?</p>
               <div class="botoes-inativar">
-                <button type="button" class="btn-principal btn-nao">Não</button>
+                <button type="button" class="btn-principal btn-nao btnFechar">Não</button>
                 <button type="button" class="btn-principal btn-sim">Sim</button>
               </div>
             </div>
@@ -347,6 +348,28 @@
                 <!-- Vendas adicionadas via JS -->
               </tbody>
             </table>
+          </div>
+
+          <!-- Modal Alterar Status Venda -->
+          <div id="modalStatusVenda" class="modal">
+            <div class="modal-content">
+              <span class="close" id="btnFecharStatusVenda">&times;</span>
+              <h2>Status da Venda</h2>
+              <form id="formStatusVenda">
+                <div class="campo-filtro">
+                  <label for="novoStatusVenda">Novo Status</label>
+                  <select id="novoStatusVenda">
+                    <option>Pendente</option>
+                    <option>Concluída</option>
+                    <option>Cancelada</option>
+                  </select>
+                </div>
+                <div class="btn-acao">
+                  <button type="button" class="btn-principal btnFechar" id="btnCancelarStatusVenda">Cancelar</button>
+                  <button type="submit" class="btn-principal">Salvar</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
